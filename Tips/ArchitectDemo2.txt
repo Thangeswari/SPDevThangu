@@ -1,0 +1,6 @@
+Create a Document Library named "Projects".
+Upload the TDD template shared in the HandsOn section of Webinar.
+Create a Class Diagram and update that in the TDD template with a new version.
+
+
+

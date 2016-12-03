@@ -1,0 +1,65 @@
+Module 1
+
+1. What are valid SharePoint versions?
+
+A. SharePoint 2000
+B. SharePoint 2005
+C. SharePoint 2011
+D. SharePoint 2013
+E. SharePoint 2016
+
+2. What is the maximum number of recommended Web Applications?
+
+A. 2
+B. 3
+C. 10
+D. 20
+
+3. Can you archive Records in SharePoint?
+
+Yes
+No
+
+4. Can SharePoint be used as a social networking site?
+
+Yes
+No
+
+5. Which are ShrarePoint objects?
+
+SPFarm
+SPUniverse
+SPSite
+SPWEbSite
+SPField
+
+6. Can you upload a video on SharePoint without code?
+
+Yes
+No
+
+7. Which of the following tools can be used for developing SharePoint?
+1. Internet Explorer
+2. SharePoint Designer
+3. Visual Studio
+4. InfoPath
+
+8. Is it a good idea to use a third Party tool in SharePoint?
+
+Yes
+No
+Needs Analysis
+
+9. SharePoint runs under which process?
+1. w3wp
+2. UCw3wp
+3. notepad
+4. service
+
+10. There can be 750,000 site collections in a SharePoint Farm.
+
+True
+False
+
+
+

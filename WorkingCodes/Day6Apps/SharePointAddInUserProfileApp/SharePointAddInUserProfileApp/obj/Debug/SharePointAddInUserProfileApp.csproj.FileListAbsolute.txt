@@ -1,0 +1,3 @@
+C:\ILoveMySelf\ExternalPPT\EduRekha\eDUREKHA\HandsOn\App\CONSOLEApp\SharePointAddInUserProfileApp\SharePointAddInUserProfileApp\bin\Debug\SharePointAddInUserProfileApp.pdb
+C:\ILoveMySelf\ExternalPPT\EduRekha\eDUREKHA\HandsOn\App\CONSOLEApp\SharePointAddInUserProfileApp\SharePointAddInUserProfileApp\obj\Debug\SharePointAddInUserProfileApp.dll
+C:\ILoveMySelf\ExternalPPT\EduRekha\eDUREKHA\HandsOn\App\CONSOLEApp\SharePointAddInUserProfileApp\SharePointAddInUserProfileApp\obj\Debug\SharePointAddInUserProfileApp.pdb

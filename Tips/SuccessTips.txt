@@ -1,0 +1,8 @@
+Tips
+--------
+When in doubt/stuck, post in msdn forums.
+MVP=> Start blogging MSDN, Channel9
+"Inside SharePoint 2013" Ted,Scott,Andrew => Experts in SharePoint
+SharePoint Framework 
+Follow the experts on twitter
+Jeff Teper

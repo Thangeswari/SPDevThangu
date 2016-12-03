@@ -1,0 +1,10 @@
+<Activity mc:Ignorable="sads" x:Class="SharePointAddInWorkFlowVS.WorkflowSimple.Workflow"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:p="wf://workflow.windows.net/$Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sads:DebugSymbol.Symbol="9xD4kI10rGRlZ0nxAtx6UuKBlAFDOlxJTG92ZU15U2VsZlxFeHRlcm5hbFBQVFxFZHVSZWtoYVxlRFVSRUtIQVxIYW5kc09uXEFwcFxDT05TT0xFQXBwXFNoYXJlUG9pbnRBZGRJbldvcmtGbG93VlNcU2hhcmVQb2ludEFkZEluV29ya0Zsb3dWU1xXb3JrZmxvd1NpbXBsZVxXb3JrZmxvdy54YW1sAiUDKQ4CAQEmBSZeAgEC">
+    <p:WriteToHistory Message="Welcome" />
+  </Sequence>
+</Activity>

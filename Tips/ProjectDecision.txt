@@ -1,0 +1,10 @@
+Decide a Project Idea from any of the following:
+1. Walmart Store(Buy Items/goods)
+2. Course Registration(Register Courses)
+3. Resume Portal 
+4. Airline Booking System
+5. Project Management Center
+6. HelpDesk Ticket System
+7. Expense Management
+
+Others..

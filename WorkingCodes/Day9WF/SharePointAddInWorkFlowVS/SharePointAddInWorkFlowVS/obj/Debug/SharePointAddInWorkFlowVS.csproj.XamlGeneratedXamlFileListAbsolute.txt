@@ -1,0 +1,2 @@
+obj\Debug\Workflow.g.xaml
+obj\Debug\SharePointAddInWorkFlowVS.WorkflowSimple_Workflow_BeforeInitializeComponentHelper.txt

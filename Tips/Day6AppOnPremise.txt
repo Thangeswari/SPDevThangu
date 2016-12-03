@@ -1,0 +1,17 @@
+https://technet.microsoft.com/en-us/library/fp161236.aspx
+https://technet.microsoft.com/en-us/library/fp161236.aspx
+Connect to AD
+
+Create a new User Account for Development "AppDeveloper"
+
+Register Managed Account
+
+SQL - Security ServerRole sysadmin
+
+Add to Administrator to Farm and Site Collection
+
+Create a new App Domain and add to App Url
+
+Admin account
+
+Site Subsscription Setting Setting and App Managment

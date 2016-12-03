@@ -1,0 +1,27 @@
+Farm/A collection of server
+List/The fundamental building block of SharePoint data with rows and columns
+Field/The columns in a list
+Twenty/The maximum number of Web Applications in a SharePoint Farm
+Blue/What is the default color of SharePoint Team Site
+w3wp/SharePoint runs under which process
+Yes/Can you create your own SharePoint website from Office 365?
+Yes/Can you create a Slideshow of pictures using SharePoint?
+Blog/Which site template should you use to start blogging?
+Yes/Can you view your sharepoint site on your mobile?
+
+
+ACROSS
+ 
+ 	2	The fundamental building block of SharePoint data with rows and columns	 
+ 	4	The columns in a list	 
+ 	5	SharePoint runs under which process	 
+ 	7	Which site template should you use to start blogging?	 
+ 	8	Can you create your own SharePoint website from Office 365?	 
+ 	
+DOWN
+ 
+ 	1	Can you view your sharepoint site on your mobile?	 
+ 	3	The maximum number of Web Applications in a SharePoint Farm	 
+ 	4	A collection of server	 
+ 	6	What is the default color of SharePoint Team Site	 
+ 	8	Can you create a Slideshow of pictures using SharePoint?

@@ -1,0 +1,7 @@
+Create a Document Library named "Projects".
+Upload the TDD template shared in the HandsOn section of Webinar.
+Create a Database Diagram and update that in the TDD template with a new version.
+Database - Tables/Colums(Site Columns,Content Types,LIst)
+
+
+

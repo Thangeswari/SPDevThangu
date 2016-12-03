@@ -1,0 +1,48 @@
+SP <Object>
+
+Farm
+Server
+Services
+WebApplication
+Site
+Web(Top Level Site- RootWeb subsite)
+List(DocumentLibrary)
+Field(Column)
+ListItem
+
+
+Site Name -- www.<yourname>.com [Intranet,Internet, Extranet]
+Subsite Name -
+Site Collections (Sales,..) 
+
+Authentication -
+Windows ,FBA(Google,Live..)
+Claims - "Claim Token"
+"contoso\suresh"-LDAP
+"w:#s|contoso\suresh" SAML standardisation
+"w:^d|suresg@gmail.com"
+
+Overview-https://technet.microsoft.com/en-us/library/cc424952.aspx
+SharePoint Basics and Feature(List,content type,site columns)
+
+Site for holding the items in a Shop Walmart
+
+Pages- Wireframe
+Database - Tables/Colums(Site Columns,Content Types,LIst)
+Files - Document Library
+Business Logic - Workflows
+
+Walmart
+
+Place An Order for am Item
+Products
+   Site Columns - Item No, Item Name, Expiry Date, Description,Picture
+   Content Type - ProductsContentType
+
+Picture Library - Pics
+
+
+
+
+
+

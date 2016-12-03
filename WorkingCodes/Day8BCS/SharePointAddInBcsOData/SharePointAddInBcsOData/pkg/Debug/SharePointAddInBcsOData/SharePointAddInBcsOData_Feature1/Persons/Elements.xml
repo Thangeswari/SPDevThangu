@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Url="Lists/Persons" Description="Persons" OnQuickLaunch="TRUE" Title="Persons">
+    <DataSource>
+      <Property Name="LobSystemInstance" Value="DemoBCS" />
+      <Property Name="EntityNamespace" Value="ODataDemo" />
+      <Property Name="Entity" Value="Persons" />
+      <Property Name="SpecificFinder" Value="ReadSpecificPerson" />
+      <Property Name="MetadataCatalogFileName" Value="BDCMetadata.bdcm" />
+    </DataSource>
+  </ListInstance>
+</Elements>

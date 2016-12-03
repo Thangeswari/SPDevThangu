@@ -1,0 +1,7 @@
+﻿<WorkflowDefinition xmlns="http://schemas.microsoft.com/sharepoint/2012/app/workflow">
+  <Description>My 'WorkflowSimple' Workflow</Description>
+  <DisplayName>WorkflowSimple</DisplayName>
+  <Id>d30c70b7-2e11-4d36-834a-d5439d0a3a8c</Id>
+  <RestrictAssociationToId>Lists/Projects</RestrictAssociationToId>
+  <RestrictAssociationToType>List</RestrictAssociationToType>
+</WorkflowDefinition>

@@ -1,0 +1,1 @@
+bin\Debug\SharePointAddInBcsOData.wsp

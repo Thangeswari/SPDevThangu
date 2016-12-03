@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SharePointSiteUrl>https://sharepointisgreat.sharepoint.com/sites/Edureka/Dev/</SharePointSiteUrl>
+    <WorkflowDebuggingClientSecret>6lT/TLNhnR+Pho42PeTlWgpMqv+P35vCvN1ciKciNCw=</WorkflowDebuggingClientSecret>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{C1CDDADD-2546-481F-9697-4EA41081F2FC}">
+        <ProjectStore>
+          <IsWorkflowDebuggingEnabled>true</IsWorkflowDebuggingEnabled>
+          <AppInstancePackageModifiedTime>2016-11-06T16:53:09.521329Z</AppInstancePackageModifiedTime>
+          <AppInstanceId>ad22bb2e-7d19-42c5-b869-7ed4db095680</AppInstanceId>
+        </ProjectStore>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

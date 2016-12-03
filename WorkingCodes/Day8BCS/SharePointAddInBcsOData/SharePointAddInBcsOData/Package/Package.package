@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="09862c0d-7ded-4768-ab9e-ec210ebeb77c" 
+        solutionId="09862c0d-7ded-4768-ab9e-ec210ebeb77c" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="SharePointAddInBcsOData"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="8b599626-572e-4961-9582-038ff66825ef" />
+  </features>
+</package>

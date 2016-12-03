@@ -1,0 +1,4 @@
+obj\Debug\_SharePointAddInWorkFlowVS.g.cs
+obj\Debug\Workflow.g.cs
+obj\Debug\SharePointAddInWorkFlowVS.WorkflowSimple_Workflow_BeforeInitializeComponentHelper.cs
+obj\Debug\_AssemblyInfo_c2426009196441c8984f5ba8468860ef.g.cs

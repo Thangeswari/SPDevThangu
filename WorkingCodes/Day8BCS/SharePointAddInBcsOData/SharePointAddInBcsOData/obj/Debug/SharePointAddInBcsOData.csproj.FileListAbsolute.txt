@@ -1,0 +1,3 @@
+C:\ILoveMySelf\ExternalPPT\EduRekha\eDUREKHA\HandsOn\App\CONSOLEApp\SharePointAddInBcsOData\SharePointAddInBcsOData\bin\Debug\SharePointAddInBcsOData.pdb
+C:\ILoveMySelf\ExternalPPT\EduRekha\eDUREKHA\HandsOn\App\CONSOLEApp\SharePointAddInBcsOData\SharePointAddInBcsOData\obj\Debug\SharePointAddInBcsOData.dll
+C:\ILoveMySelf\ExternalPPT\EduRekha\eDUREKHA\HandsOn\App\CONSOLEApp\SharePointAddInBcsOData\SharePointAddInBcsOData\obj\Debug\SharePointAddInBcsOData.pdb

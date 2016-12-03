@@ -1,0 +1,4 @@
+Create a Document Library named "Projects"
+Upload the TDD template shared in the HandsOn section of Webinar and 
+make that the content type
+Create a Use Case Diagram and update that in the

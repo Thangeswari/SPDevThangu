@@ -1,0 +1,239 @@
+'use strict';
+
+var context = SP.ClientContext.get_current();
+var user = context.get_web().get_currentUser();
+var web = context.get_web();
+var lists = web.get_lists();
+var listItemCollection;  // This variable is used later when you add list items.
+
+(function () {
+
+    // This code runs when the DOM is ready and creates a context object which is 
+    // needed to use the SharePoint object model
+    $(document).ready(function () {
+        getUserName();
+    $("#getListCount").click(function (event) {
+        getWebProperties();
+        event.preventDefault();
+    });
+
+    $("#createlistbutton").click(function (event) {
+        createlist();
+        event.preventDefault();
+    });
+
+    $("#deletelistbutton").click(function (event) {
+        deletelist();
+        event.preventDefault();
+    });
+	
+	$("#createitembutton").click(function (event) {
+            createitem();
+            event.preventDefault();
+        });
+
+        $("#deleteitembutton").click(function (event) {
+            deleteitem();
+            event.preventDefault();
+        });
+    
+        // Update the list items dropdown when a new list
+        // is selected in the Lists dropdown.
+        $("#selectlistbox").change(function (event) {
+            getitems();
+            event.preventDefault();
+        });
+        displayLists();
+    });
+
+    // This function prepares, loads, and then executes a SharePoint query to get 
+    // the current users information
+    function getUserName() {
+        context.load(user);
+        context.executeQueryAsync(onGetUserNameSuccess, onGetUserNameFail);
+    }
+
+    // This function is executed if the above call is successful
+    // It replaces the contents of the 'message' element with the user name
+    function onGetUserNameSuccess() {
+        $('#message').text('Hello ' + user.get_title());
+    }
+
+    // This function is executed if the above call fails
+    function onGetUserNameFail(sender, args) {
+        alert('Failed to get user name. Error:' + args.get_message());
+    }
+	
+	function getWebProperties() {
+        // Get the number of lists in the current web.
+        context.load(lists);
+        context.executeQueryAsync(onWebPropsSuccess, onWebPropsFail);
+    }
+
+    function onWebPropsSuccess(sender, args) {
+        alert('Number of lists in web: ' + lists.get_count());
+    }
+
+    function onWebPropsFail(sender, args) {
+        alert('Failed to get list. Error: ' + args.get_message());
+    }
+
+    function displayLists() {
+        // Get the available SharePoint lists, and then set them into 
+        // the context.
+        lists = web.get_lists();
+        context.load(lists);
+        context.executeQueryAsync(onGetListsSuccess, onGetListsFail);
+    }
+
+    function onGetListsSuccess(sender, args) {
+        // Success getting the lists. Set references to the list 
+        // elements and the list of available lists.
+        var listEnumerator = lists.getEnumerator();
+        var selectListBox = document.getElementById("selectlistbox");
+        if (selectListBox.hasChildNodes()) {
+            while (selectListBox.childNodes.length >= 1) {
+                selectListBox.removeChild(selectListBox.firstChild);
+            }
+        }
+        // Traverse the elements of the collection, and load the name of    
+        // each list into the dropdown list box.
+        while (listEnumerator.moveNext()) {
+            var selectOption = document.createElement("option");
+            selectOption.value = listEnumerator.get_current().get_title();
+            selectOption.innerHTML = listEnumerator.get_current().get_title();
+            selectListBox.appendChild(selectOption);
+        }
+    }
+
+    function onGetListsFail(sender, args) {
+        // Lists couldn’t be loaded - display error.
+        alert('Failed to get list. Error: ' + args.get_message());
+    }
+
+function createlist() {
+        // Create a generic SharePoint list with the name that the user specifies.
+        var listCreationInfo = new SP.ListCreationInformation();
+        var listTitle = document.getElementById("createlistbox").value;
+        listCreationInfo.set_title(listTitle);
+        listCreationInfo.set_templateType(SP.ListTemplateType.genericList);
+        lists = web.get_lists();
+        var newList = lists.add(listCreationInfo);
+        context.load(newList);
+        context.executeQueryAsync(onListCreationSuccess, onListCreationFail);
+    }
+
+    function onListCreationSuccess() {
+        displayLists();
+    }
+
+    function onListCreationFail(sender, args) {
+        alert('Failed to create the list. ' + args.get_message());
+    }
+
+    function deletelist() {
+        // Delete the list that the user specifies.
+        var selectListBox = document.getElementById("selectlistbox");
+        var selectedListTitle = selectListBox.value;
+        var selectedList = web.get_lists().getByTitle(selectedListTitle);
+        selectedList.deleteObject();
+        context.executeQueryAsync(onDeleteListSuccess, onDeleteListFail);
+    }
+
+    function onDeleteListSuccess() {
+        displayLists();
+    }
+
+    function onDeleteListFail(sender, args) {
+        alert('Failed to delete the list. ' + args.get_message());
+    }
+	
+	function createitem() {
+    // Retrieve the list that the user chose, and add an item to it.
+    var selectListBox = document.getElementById("selectlistbox");
+    var selectedListTitle = selectListBox.value;
+    var selectedList = web.get_lists().getByTitle(selectedListTitle);
+
+    var listItemCreationInfo = new SP.ListItemCreationInformation();
+    var newItem = selectedList.addItem(listItemCreationInfo);
+    var listItemTitle = document.getElementById("createitembox").value;
+    newItem.set_item('Title', listItemTitle);
+    newItem.update();
+    context.load(newItem);
+    context.executeQueryAsync(onItemCreationSuccess, onItemCreationFail);
+}
+
+function onItemCreationSuccess() {
+    // Refresh the list of items.
+    getitems();
+}
+
+function onItemCreationFail(sender, args) {
+    // The item couldn’t be created – display an error message.
+    alert('Failed to create the item. ' + args.get_message());
+}
+
+function deleteitem() {
+    // Delete the item that the user chose.
+    var selectListBox = document.getElementById("selectlistbox");
+    var selectedListTitle = selectListBox.value;
+    var selectedList = web.get_lists().getByTitle(selectedListTitle);
+    var selectItemBox = document.getElementById("selectitembox");
+    var selectedItemID = selectItemBox.value;
+    var selectedItem = selectedList.getItemById(selectedItemID);
+    selectedItem.deleteObject();
+    selectedList.update();
+    context.load(selectedList);
+    context.executeQueryAsync(onDeleteItemSuccess, onDeleteItemFail);
+}
+
+function onDeleteItemSuccess() {
+    // Refresh the list of items.
+    getitems();
+}
+
+function onDeleteItemFail(sender, args) {
+    // The item couldn’t be deleted – display an error message.
+    alert('Failed to delete the item. ' + args.get_message());
+}
+
+function getitems() {
+    // Using a CAML query, get the items in the list that the user chose, and 
+    // set the context to the collection of list items.
+    var selectListBox = document.getElementById("selectlistbox");
+    var selectedList = selectListBox.value;
+    var selectedListTitle = web.get_lists().getByTitle(selectedList);  
+    var camlQuery = new SP.CamlQuery();
+    camlQuery.set_viewXml("<View><ViewFields>" +
+        "<FieldRef Name='ID' />" +
+        "<FieldRef Name='Title' />" +
+        "</ViewFields></View>')");
+    listItemCollection = selectedListTitle.getItems(camlQuery);
+    context.load(listItemCollection, "Include(Title, ID)");
+    context.executeQueryAsync(onGetItemsSuccess, onGetItemsFail);
+}
+
+function onGetItemsSuccess(sender, args) {
+    // The list items were retrieved.
+    // Show all child nodes.
+    var listItemEnumerator = listItemCollection.getEnumerator();
+    var selectItemBox = document.getElementById("selectitembox");
+    if (selectItemBox.hasChildNodes()) {
+        while (selectItemBox.childNodes.length >= 1) {
+     selectItemBox.removeChild(selectItemBox.firstChild);
+        }
+    }
+        while (listItemEnumerator.moveNext()) {
+            var selectOption = document.createElement("option");
+            selectOption.value = listItemEnumerator.get_current().get_item('ID');
+            selectOption.innerHTML = listItemEnumerator.get_current().get_item('Title');
+            selectItemBox.appendChild(selectOption);
+        }
+}
+
+function onGetItemsFail(sender, args) {
+    // The list items couldn’t be retrieved - display an error message.
+    alert('Failed to get items. Error: ' + args.get_message());
+}
+
+})();

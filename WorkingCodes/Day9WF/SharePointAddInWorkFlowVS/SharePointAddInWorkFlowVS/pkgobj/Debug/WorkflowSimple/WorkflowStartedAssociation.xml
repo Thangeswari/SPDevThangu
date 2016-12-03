@@ -1,0 +1,10 @@
+﻿<WorkflowAssociation xmlns="http://schemas.microsoft.com/sharepoint/2012/app/workflow">
+  <Description>WorkflowSimple - WorkflowStart</Description>
+  <DisplayName>WorkflowSimple - WorkflowStart</DisplayName>
+  <Enabled>true</Enabled>
+  <EventSourceGUID>Lists/Projects</EventSourceGUID>
+  <EventType>WorkflowStart</EventType>
+  <HistoryListId>Lists/WorkflowHistoryList</HistoryListId>
+  <Id>bf399663-6eb8-445a-be05-e7c0d9c03c98</Id>
+  <TaskListId>Lists/WorkflowTaskList</TaskListId>
+</WorkflowAssociation>

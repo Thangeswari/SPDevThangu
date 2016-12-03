@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="007f12fb-4551-493c-abdc-c254ea264cd1" 
+        solutionId="007f12fb-4551-493c-abdc-c254ea264cd1" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="SharePointAddInUserProfileApp"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="9148f922-df48-4aa4-acf1-bf342ab020d8" />
+  </features>
+</package>

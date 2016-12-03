@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="ea2e3cda-a8d7-4db8-b866-663811f086c2" 
+        solutionId="ea2e3cda-a8d7-4db8-b866-663811f086c2" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="SharePointAddInWorkFlowVS"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="0ccc6d08-732e-43d2-b5a0-2ece9a0cf038" />
+  </features>
+</package>

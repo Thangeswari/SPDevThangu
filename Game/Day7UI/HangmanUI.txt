@@ -1,0 +1,23 @@
+1.You need to create a design package for the publishing sites.What should you do?Use ....
+
+D_S_G_ M_N_G_R
+
+2.Which object is used to change the custom Color and Font of SharePoint site?
+
+_P_T_E_M_E
+
+3.Where are the style sheet links added?
+
+P_a_eHolderAdditionalPageHe_d
+
+4.Color Palette is a part of ....  look?
+C_M_P_S_ED
+
+5.Can images be cropped on a SharePoint Publishing site directly?HOW?
+I_A_G_E R_N_D_T_O_
+
+6.This  method deletes a list item based on ID:
+SPList.G_tI_emByUnique__(GuiduniqueID)
+
+SharePoint uses SP.UI.Notify to show custom Notifications
+No_i_y

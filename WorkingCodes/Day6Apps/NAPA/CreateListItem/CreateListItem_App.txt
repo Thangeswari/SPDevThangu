@@ -1,0 +1,101 @@
+'use strict';
+
+//https://msdn.microsoft.com/en-us/library/office/jj220041.aspx
+var context = SP.ClientContext.get_current(); //gets the current context 
+//var web = context.get_web(); //gets the web object
+var web = context.get_site().get_rootWeb();
+
+var list = web.get_lists(); //gets the collection of lists
+
+var listCreation;
+(function () {
+
+    // This code runs when the DOM is ready and creates a context object which is 
+    // needed to use the SharePoint object model
+    $(document).ready(function () {
+//createList();        
+//createItem();
+$("#btnCreateItem").click(function (event) {
+        createItem();
+        event.preventDefault();
+    });
+    });
+
+/*function createList() {
+
+        listCreation = new SP.ListCreationInformation();
+
+        listCreation.set_title("Fruits"); //list title
+
+        listCreation.set_templateType(SP.ListTemplateType.genericList); //list type
+
+        list.add(listCreation)
+
+        context.load(list);
+
+        context.executeQueryAsync(onListCreationSuccess, onListCreationFail);
+
+    } 
+function onListCreationSuccess() {
+
+        alert("Success");
+
+        $('#message').text("List got created");
+
+    }
+
+    function onListCreationFail(sender, args) {
+
+        alert('Failed to create list. Error:' + args.get_message());
+
+    }
+
+*/
+    function createItem() {
+
+        // Retrieve the list and add an item to it.
+
+        var targetList = list.getByTitle("Fruits");
+
+        //create a new item object
+
+        var listItemCreation = new SP.ListItemCreationInformation();
+
+        //add the item to the list using addItem method
+
+        var newItem = targetList.addItem(listItemCreation);
+
+        var listItemTitle = document.getElementById("txtTitle").value;
+
+        alert(listItemTitle);
+
+        //var listItemCustom = document.getElementById("txtCustom").value;
+
+        //alert(listItemCustom);
+
+        //using set_item method u can set the values to the item fields
+
+        newItem.set_item('Title', listItemTitle);
+
+        //newItem.set_item('MyCustomField', listItemCustom);
+
+        newItem.update();
+
+        context.load(newItem);
+
+        context.executeQueryAsync(ItemCreationSuccess, ItemCreationFail);
+
+    }
+
+    // This function is executed if the above call is successful
+    // It replaces the contents of the 'message' element with the user name
+    function ItemCreationSuccess() {
+        alert('Item created successfully ');
+    }
+
+    // This function is executed if the above call fails
+    function ItemCreationFail(sender, args) {
+        alert('Failed to create Item' + args.get_message());
+    }
+
+})();

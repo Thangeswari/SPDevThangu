@@ -1,0 +1,11 @@
+C:\ILoveMySelf\BestFromJesus\SharePoint\DeveloperTutorial\Basics\HandsOn\Projects\CSOMCreateListItem\CSOMCreateListItem\bin\Debug\CSOMCreateListItem.exe.config
+C:\ILoveMySelf\BestFromJesus\SharePoint\DeveloperTutorial\Basics\HandsOn\Projects\CSOMCreateListItem\CSOMCreateListItem\bin\Debug\CSOMCreateListItem.exe
+C:\ILoveMySelf\BestFromJesus\SharePoint\DeveloperTutorial\Basics\HandsOn\Projects\CSOMCreateListItem\CSOMCreateListItem\bin\Debug\CSOMCreateListItem.pdb
+C:\ILoveMySelf\BestFromJesus\SharePoint\DeveloperTutorial\Basics\HandsOn\Projects\CSOMCreateListItem\CSOMCreateListItem\bin\Debug\Microsoft.SharePoint.Client.dll
+C:\ILoveMySelf\BestFromJesus\SharePoint\DeveloperTutorial\Basics\HandsOn\Projects\CSOMCreateListItem\CSOMCreateListItem\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+C:\ILoveMySelf\BestFromJesus\SharePoint\DeveloperTutorial\Basics\HandsOn\Projects\CSOMCreateListItem\CSOMCreateListItem\obj\Debug\CSOMCreateListItem.csprojResolveAssemblyReference.cache
+C:\ILoveMySelf\BestFromJesus\SharePoint\DeveloperTutorial\Basics\HandsOn\Projects\CSOMCreateListItem\CSOMCreateListItem\obj\Debug\CSOMCreateListItem.exe
+C:\ILoveMySelf\BestFromJesus\SharePoint\DeveloperTutorial\Basics\HandsOn\Projects\CSOMCreateListItem\CSOMCreateListItem\obj\Debug\CSOMCreateListItem.pdb
+C:\ILoveMySelf\ExternalPPT\EduRekha\GroupTraining\HandsOn\App\CSOMCreateListItem\CSOMCreateListItem\bin\Debug\CSOMCreateListItem.exe.config
+C:\ILoveMySelf\ExternalPPT\EduRekha\GroupTraining\HandsOn\App\CSOMCreateListItem\CSOMCreateListItem\obj\Debug\CSOMCreateListItem.exe
+C:\ILoveMySelf\ExternalPPT\EduRekha\GroupTraining\HandsOn\App\CSOMCreateListItem\CSOMCreateListItem\obj\Debug\CSOMCreateListItem.pdb
