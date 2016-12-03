@@ -1,0 +1,126 @@
+//https://msdn.microsoft.com/en-us/library/office/fp179912.aspx
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Security;
+using Microsoft.SharePoint.Client;
+
+namespace CSOMCreateListItem
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ConsoleColor defaultForeground = Console.ForegroundColor;
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Enter the URL of the SharePoint Online site:");
+
+            Console.ForegroundColor = defaultForeground;
+            string webUrl = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Enter your user name (ex: name@mytenant.microsoftonline.com):");
+            Console.ForegroundColor = defaultForeground;
+            string userName = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Enter your password.");
+            Console.ForegroundColor = defaultForeground;
+            SecureString password = GetConsoleSecurePassword();
+            Console.WriteLine("Password Reading complete");
+
+            using (var context = new ClientContext(webUrl))
+            {
+                context.Credentials = new SharePointOnlineCredentials(userName, password);
+                // Assume that the web has a list named "Student". 
+                List studentList = context.Web.Lists.GetByTitle("Student");
+
+                // We are just creating a regular list item, so we don't need to 
+                // set any properties. If we wanted to create a new folder, for 
+                // example, we would have to set properties such as 
+                // UnderlyingObjectType to FileSystemObjectType.Folder. 
+                ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation();
+                ListItem newItem = studentList.AddItem(itemCreateInfo);
+                newItem["Title"] = "Mary";
+                newItem.Update();
+
+                context.ExecuteQuery();
+
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("List Item created ");
+                Console.ForegroundColor = defaultForeground;
+                Console.ReadLine();
+            }
+
+
+        }
+
+        /// <summary>
+        /// Gets the console secure password.
+        /// </summary>
+        /// <returns></returns>
+        private static SecureString GetConsoleSecurePassword()
+        {
+            SecureString pwd = new SecureString();
+            while (true)
+            {
+                ConsoleKeyInfo i = Console.ReadKey(true);
+                if (i.Key == ConsoleKey.Enter)
+                {
+                    break;
+                }
+                else if (i.Key == ConsoleKey.Backspace)
+                {
+                    pwd.RemoveAt(pwd.Length - 1);
+                    Console.Write("\b \b");
+                }
+                else
+                {
+                    pwd.AppendChar(i.KeyChar);
+                    Console.Write("*");
+                }
+            }
+            return pwd;
+        }
+
+        /// <summary>
+        /// Gets the console password.
+        /// </summary>
+        /// <returns></returns>
+        private static string GetConsolePassword()
+        {
+            StringBuilder sb = new StringBuilder();
+            while (true)
+            {
+                ConsoleKeyInfo cki = Console.ReadKey(true);
+                if (cki.Key == ConsoleKey.Enter)
+                {
+                    Console.WriteLine();
+                    break;
+                }
+
+                if (cki.Key == ConsoleKey.Backspace)
+                {
+                    if (sb.Length > 0)
+                    {
+                        Console.Write("\b\0\b");
+                        sb.Length--;
+                    }
+
+                    continue;
+                }
+
+                Console.Write('*');
+                sb.Append(cki.KeyChar);
+            }
+
+            return sb.ToString();
+        }
+
+
+    }
+}

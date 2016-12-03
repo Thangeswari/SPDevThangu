@@ -1,0 +1,195 @@
+Timer Jobs
+
+File -> New Project
+Select language as visual c#.
+   ü            Click on “Office/SharePoint”.
+   ü            Select “SharePoint2013-Empty Project”.
+   ü            Give name as “SPCustomTimerJob”
+   ü            Click on “OK” to create project.
+
+Step3:-
+   ü  Provide the site URL to the project where you want deploy the solution.
+   ü  Click on Validate button to check the connectivity.
+   ü  Select the trusted level to deploy solution check the “Deploy as Farm Solution” because it              has highly trusted than Sandbox solution.
+   ü  Click on “Finish”.
+
+Step5:-
+  üRight Click on “SPJobs” folder and add one class file.
+
+Step6:-
+   ü Select the class Template and name it as “TimerJobClass.cs”.
+    ü  The class file is created.
+
+Step7:-
+    ü  Inherit the SPJobDefinition class from SPCustomTimerJob.
+    ü  Add the three default constructors of SPJobDefinition class to SPCustomTimerJob.
+    ü  Over ride the Execute method in SPCustomTimerJob class.
+    ü  Our main code we will keep it in Execute method of the SPCustomTimerJob.
+
+Step8:-
+    ü  Right click on Features and “AddFeature” and name it as “SPTimerJobFeature”.
+
+Step9:-
+    ü  Select the scope of the Timer job as “WebApplication”.
+
+Step10:-
+    ü  Then go to the Feature properties and make “False” the “Active On Default”.
+
+Step11:-
+    ü  Right click on the “SPTimerJobFeature” and select “Add Event Receiver”.
+    ü  Name it as SPTimer.
+
+Step12:-
+If you observer here the SPTimerjobFeature1EventReceiver class extends the SPFeatureReceiver class.
+
+By default all the Methods are commented out, un-comment the methods that you want and add the code inside the method
+    ü  FeatureActivated
+    ü  FeatureDeactivating
+    ü  FeatureInstalled
+    ü  FeatureUninstalling
+    ü  FeatureUpgrading
+
+Step13:-
+   ü  In FeatureActivated method i used SPSecurity.RunWithElevatePrivileges.
+   ü  And instantiated the WebApplication and site.
+   ü  Implemented two methods create and delete the job are CreateJob() and DeleteJob()
+
+Step14:-
+  ü Right click on project name and click on “Deploy” to deploy the solution into the site.
+
+Step15:-
+   ü  Go to the Central Administration.
+   ü  Select the Application Management then click on the “Manage web applications”.
+
+Step16:-
+   ü  Select the web application in which the solution is deployed.
+   ü  Click on “Manage Feature”.
+
+Step17:-
+   ü  You can find the Feature whatever implemented in visual studio.
+   ü  Then click on “Activate” button.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.SharePoint;
+using Microsoft.SharePoint.Administration;
+
+namespace SPCustomTimerJob.SPJobs
+{
+    class TimerJobClass:SPJobDefinition
+    {
+        public TimerJobClass() : base() { }
+
+        public TimerJobClass(string JobName, SPService Service) : base(JobName, Service, null, SPJobLockType.None)
+        {
+            this.Title = "Timer Job Task complete";
+        }
+
+        public TimerJobClass(string JobName, SPWebApplication web):base(JobName,web,null,SPJobLockType.ContentDatabase)
+        {
+            this.Title = "Timer Job Task complete";
+        }
+
+        public override void Execute(Guid targetInstanceId)
+        {
+            //base.Execute(targetInstanceId);
+            SPWebApplication webApp = this.Parent as SPWebApplication;
+            SPList taskList = webApp.Sites[0].RootWeb.Lists["TaskList"];
+            SPListItem newtask = taskList.Items.Add();
+            newtask["Title"] = "NewTask" + DateTime.Now.ToString();
+            newtask.Update();
+        }
+    }
+}
+SPTimerjobFeature1.EventReceiver.cs
+using System;
+using System.Runtime.InteropServices;
+using System.Security.Permissions;
+using Microsoft.SharePoint;
+using Microsoft.SharePoint.Administration;
+using SPCustomTimerJob.SPJobs;
+
+namespace SPCustomTimerJob.Features.SPTimerJobFeature
+{
+    [Guid("65cf2a1a-6a7e-4426-b63d-9f0be40f85f7")]
+    public class SPTimerJobFeatureEventReceiver : SPFeatureReceiver
+    {
+        const string JobName = "SPTimer Job Task";
+
+        public override void FeatureActivated(SPFeatureReceiverProperties properties)
+        {
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+                {
+                    SPWebApplication parentwebApp = (SPWebApplication)properties.Feature.Parent;
+                    SPSite site = properties.Feature.Parent as SPSite;
+                    DeleteExistingJob(JobName, parentwebApp);
+                    CreateJob(parentwebApp);
+                });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
+        {
+            try
+            {
+                SPWebApplication parentwebApp = (SPWebApplication)properties.Feature.Parent;
+                DeleteExistingJob(JobName, parentwebApp);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private bool CreateJob(SPWebApplication site)
+        {
+            bool jobCreated = false;
+            try
+            {
+                TimerJobClass job = new TimerJobClass(JobName, site);
+
+                SPMinuteSchedule schedule = new SPMinuteSchedule();
+
+                schedule.BeginSecond = 0;
+                schedule.EndSecond = 59;
+                schedule.Interval = 5;
+                job.Schedule = schedule;
+
+                job.Update();
+            }
+            catch (Exception)
+            {
+                return jobCreated;
+            }
+            return jobCreated;
+        }
+        public bool DeleteExistingJob(string jobName, SPWebApplication site)
+        {
+            bool jobDeleted = false;
+            try
+            {
+                foreach (SPJobDefinition job in site.JobDefinitions)
+                {
+                    if (job.Name == jobName)
+                    {
+                        job.Delete();
+                        jobDeleted = true;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return jobDeleted;
+            }
+            return jobDeleted;
+        }
+    }
+}

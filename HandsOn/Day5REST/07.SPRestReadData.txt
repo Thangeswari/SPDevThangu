@@ -1,0 +1,42 @@
+<div>
+    <button id="btnGetListItems">Get List Details</button>
+</div>
+<div id="listItems">Getting List Data...</div>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function(){ 
+             $("#btnGetListItems").click(function (event) {
+        GetListItems();
+        event.preventDefault();
+    });
+});
+function GetListItems(){
+    var siteUrl = "https://sharepointisgreat.sharepoint.com/sites/Edureka/dev/_api/web/lists/GetByTitle('Quotes')/items/?$select=Quote";
+    console.log(siteUrl);
+    alert(siteUrl);
+    $.ajax({
+        url:siteUrl,
+        type:"GET",
+        "headers": {
+                  "accept": "application/json; odata=verbose",
+    
+                },
+        success: function(data){
+                              
+                         // Looping multiple items
+                               $.each(data.d.results, function(index, item){
+                                     //alert("Item: " + index);
+                                     //alert(item.Quote); 
+                                     console.log(item.Quote); 
+                                     $("#listItems").append(item.Quote); //You will get column value here 
+                                 });                 
+                    },
+        error: function(err){
+                                alert("Error while fetching list item: " + JSON.stringify(err));
+                                 console.log("Error while fetching list item: " + JSON.stringify(err));
+                            }
+        
+        
+    })
+} 
+</script>
