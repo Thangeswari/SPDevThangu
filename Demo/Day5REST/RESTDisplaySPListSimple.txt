@@ -1,0 +1,31 @@
+//http://sharepoint4us.blogspot.in/2015/03/crud-operations-using-rest-apis-in.html
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function(){ 
+             GetListItem();
+});
+function GetListItem(){
+    var siteUrl = "https://sharepointisgreat.sharepoint.com/sites/Edureka/dev/_api/web/lists/GetByTitle('Quotes')/getitembyid('1')/?$select=Quote";
+    console.log(siteUrl);
+    alert(siteUrl);
+    $.ajax({
+        url:siteUrl,
+        type:"GET",
+        "headers": {
+                  "accept": "application/json; odata=verbose",
+    
+                },
+        success: function(data){
+                        alert(data.d.Quote); //You will get column value here 
+                        console.log(data.d.Quote)                        
+                    },
+        error: function(err){
+                                alert("Error while fetching list item: " + JSON.stringify(err));
+                                 console.log("Error while fetching list item: " + JSON.stringify(err));
+                            }
+        
+        
+    })
+} 
+</script>

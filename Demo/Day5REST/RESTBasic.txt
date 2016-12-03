@@ -1,0 +1,34 @@
+
+
+<div id="sampleREST">Empty</div>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function(){ 
+             GetSiteTitle();
+});
+function GetSiteTitle(){
+    var siteUrl =  _spPageContextInfo.webAbsoluteUrl+ "/_api/web/title";
+    console.log(siteUrl);
+    alert(siteUrl);
+   //$.getJSON(http://intranet.contoso.com/_api/web,function(data){alert("site is called:"+data.d.Title);}
+    $.ajax({
+        url:siteUrl,
+        type:"GET",
+        "headers": {
+                  "accept": "application/json; odata=verbose",
+    
+                },
+        success: function(data){
+                        alert(data.d.Title); //You will get column value here 
+                        $("#sampleREST").append(data.d.Title);
+                        console.log(data.d.Quote)                        
+                    },
+        error: function(err){
+                                alert("Error while fetching list item: " + JSON.stringify(err));
+                                 console.log("Error while fetching list item: " + JSON.stringify(err));
+                            }
+        
+        
+    })
+} 
+</script>

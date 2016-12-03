@@ -1,0 +1,198 @@
+//Add the following code based on the CRUD needs.Change the list name from "Quotes" to the list in your site.
+REST Code to View Item
+<div>
+    <button id="btnGetListItems">Get List Details</button>
+</div>
+<div id="listItems">Getting List Data...</div>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function(){ 
+             $("#btnGetListItems").click(function (event) {
+        GetListItems();
+        event.preventDefault();
+    });
+});
+function GetListItems(){
+    var siteUrl = "https://sharepointisgreat.sharepoint.com/sites/Edureka/dev/_api/web/lists/GetByTitle('Quotes')/items/?$select=Quote";
+    console.log(siteUrl);
+    alert(siteUrl);
+    $.ajax({
+        url:siteUrl,
+        type:"GET",
+        "headers": {
+                  "accept": "application/json; odata=verbose",
+    
+                },
+        success: function(data){
+                              
+                         // Looping multiple items
+                               $.each(data.d.results, function(index, item){
+                                     //alert("Item: " + index);
+                                     //alert(item.Quote); 
+                                     console.log(item.Quote); 
+                                     $("#listItems").append(item.Quote); //You will get column value here 
+                                 });                 
+                    },
+        error: function(err){
+                                alert("Error while fetching list item: " + JSON.stringify(err));
+                                 console.log("Error while fetching list item: " + JSON.stringify(err));
+                            }
+        
+        
+    })
+} 
+</script>
+
+REST Code to Create Item
+    <div>
+    <input type="text" value="item name here" id="createitembox"/>
+    <button id="createitembutton">Create Item</button>
+    </div>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function(){ 
+             
+    $("#createitembutton").click(function (event) {
+        CreateListItem();
+        event.preventDefault();
+    });
+});
+
+
+function CreateListItem(){
+    var siteUrl =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Quotes')/items";
+    var quoteItem = $("#createitembox").val();
+    console.log(siteUrl);
+    alert(siteUrl);
+    alert(quoteItem);
+    $.ajax({
+        url:siteUrl,
+        type:"POST",
+        data: JSON.stringify({
+                            '__metadata': {'type': 'SP.Data.QuotesListItem' },
+                            'Quote': 'You are fantastic'
+                        }),
+        "headers": {
+                  "accept": "application/json; odata=verbose",
+                     "content-type": "application/json; odata=verbose",
+                               "X-RequestDigest": $("#__REQUESTDIGEST").val()
+    
+                },
+        success: function(data){
+                            console.log("Quote Added successfully");  
+                             alert("Quote Added successfully");  
+                                         
+                    },
+        error: function(err){
+                                alert("Error while adding list item: " + JSON.stringify(err));
+                                 console.log("Error while adding list item: " + JSON.stringify(err));
+                            }
+        
+        
+    })
+}  
+</script>
+
+REST Code to Update Item
+
+    <div>
+    
+    <button id="updateitembutton">Update Item</button>
+    </div>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function(){ 
+             
+    $("#updateitembutton").click(function (event) {
+        UpdateListItem();
+        event.preventDefault();
+    });
+});
+
+
+function UpdateListItem(){
+    var siteUrl =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Quotes')/items(1)";
+    //var quoteItem = $("#createitembox").val();
+    //console.log(siteUrl);
+    //alert(siteUrl);
+    //alert(quoteItem);
+    $.ajax({
+        url:siteUrl,
+        type:"POST",
+        data: JSON.stringify({
+                            '__metadata': {'type': 'SP.Data.QuotesListItem' },
+                            'Quote': 'You deserve the best- Updated'
+                        }),
+        "headers": {
+                  "accept": "application/json; odata=verbose",
+                     "content-type": "application/json; odata=verbose",
+                               "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                               "X-HTTP-Method": "MERGE",
+                               "If-Match": "*"
+    
+                },
+        success: function(data){
+                            console.log("Quote Updated successfully");  
+                             alert("Quote Updated successfully");  
+                                         
+                    },
+        error: function(err){
+                                alert("Error while updating list item: " + JSON.stringify(err));
+                                 console.log("Error while updating list item: " + JSON.stringify(err));
+                            }
+        
+        
+    })
+}  
+</script>
+
+REST Code to Delete Item
+
+    <!--<div>    
+    <button id="deleteitembutton">Delete Item</button>
+    </div>-->
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function(){ 
+             
+   // $("#deleteitembutton").click(function (event) {
+        DeleteListItem();
+    //    event.preventDefault();
+   // });
+});
+
+
+function DeleteListItem(){
+    var siteUrl =  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Quotes')/items(4)";
+    //var quoteItem = $("#createitembox").val();
+    //console.log(siteUrl);
+    alert(siteUrl);
+    //alert(quoteItem);
+    $.ajax({
+        url:siteUrl,
+        type:"POST",        
+        "headers": {
+                  "accept": "application/json; odata=verbose",
+                     "content-type": "application/json; odata=verbose",
+                               "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                               "X-HTTP-Method": "DELETE",
+                               "If-Match": "*"
+    
+                },
+        success: function(data){
+                            console.log("Quote Deleted successfully");  
+                             alert("Quote Deleted successfully");  
+                                         
+                    },
+        error: function(err){
+                                alert("Error while deleting list item: " + JSON.stringify(err));
+                                 console.log("Error while deleting list item: " + JSON.stringify(err));
+                            }
+        
+        
+    })
+}  
+</script>

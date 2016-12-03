@@ -1,0 +1,20 @@
+Deployment Steps
+
+SharePoint Hosted -
+
+Right Click =>Publish
+
+Get the .app and upload in App Catalog
+
+Deploye the app to the sites needed.
+
+
+Provider Hosted
+
+Publish SharePoint and the Web Component(cost)
+
+Get the url of the web component and map to the SharePoint Hosted App.
+
+Upload the SharePoint App to the App Catalog
+
+Deploy the App

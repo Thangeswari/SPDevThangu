@@ -1,0 +1,35 @@
+
+<a href="javascript:createListItem()">Create List Item</a>
+
+<script type="text/javascript">
+ 
+// This function adds items to a list "Student"
+    function createListItem() {
+
+    var clientContext = new SP.ClientContext.get_current();
+    var oList = clientContext.get_web().get_lists().getByTitle('Student');
+        
+    var itemCreateInfo = new SP.ListItemCreationInformation();
+    this.oListItem = oList.addItem(itemCreateInfo);
+        
+
+    oListItem.set_item('Title', 'Mary');
+    //oListItem.set_item('Column 2', 'Value 2');
+        
+    oListItem.update();
+
+    clientContext.load(oListItem);
+        
+    clientContext.executeQueryAsync(Function.createDelegate(this, this.onQuerySucceeded), Function.createDelegate(this, this.onQueryFailed));
+}
+
+function onQuerySucceeded() {
+
+    alert('Item created: ' + oListItem.get_id());
+}
+
+function onQueryFailed(sender, args) {
+
+    alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+}
+</script>

@@ -1,0 +1,20 @@
+1. Login to Microsoft Virtual Labs https://technet.microsoft.com/en-us/virtuallabs
+2. Choose "Introduction to SharePoint"
+3. SharePoint Central Administration
+4. Create a Site Collection of Developer Template. Change the look of the site.
+5. View Site Contents of the site 
+6. Add a Web Part or App Part
+7. Create a list News of Announcements type
+
+Office 365
+Testing new SharePoint Online Office 365 Account - https://products.office.com/en-us/business/office-365-business-premium
+Click Free Trail
+
+http://dev.office.com/sharepoint/docs/spfx/set-up-your-developer-tenant
+https://dev.office.com/devprogram
+
+https://vlabs.holsystems.com/vlabs/technet?eng=VLabs&auth=none&src=vlabs&altadd=true&labid=21149&lod=true
+
+SharePoint Online and SharePoint Admin Center
+https://sharepointisgreat.sharepoint.com
+https://sharepointisgreat-admin.sharepoint.com

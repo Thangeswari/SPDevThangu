@@ -1,0 +1,43 @@
+//http://sharepoint-community.net/profiles/blogs/crud-operation-using-rest-api-in-sharepoint-list-with-script
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+<div>
+<ul id="listItems"></ul>
+</div>
+<script>alert("Div placed on page")</script>
+<script>
+$(document).ready(function(){
+alert(_spPageContextInfo.webAbsoluteUrl);
+$.ajax({
+
+url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Quotes')/items",
+
+type: "GET",
+
+headers: {"accept": "application/json;odata=verbose"},
+
+success: function (data) {
+
+if (data.d.results) {
+
+var object = data.d.results;
+
+for(var i = 0; i < object.length; i++)
+
+{
+
+$("#listItems").append(object[i].Quote);
+
+}
+
+}
+
+},
+
+error: function (xhr,text_status) {
+
+alert(xhr.status + ': ' + xhr.statusText);
+
+}
+
+});
+</script>

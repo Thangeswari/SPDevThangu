@@ -1,0 +1,8 @@
+<script type="text/ecmascript">
+
+ExecuteOrDelayUntilScriptLoaded(AddStatusMethod, "sp.js");
+function AddStatusMethod()
+{
+SP.UI.Status.addStatus("New msg","Adding New Staus to SharePoint 2013 Status bar");
+}
+</script>

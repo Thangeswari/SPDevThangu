@@ -1,0 +1,19 @@
+Status Bar Examples
+
+<script type="text/ecmascript">
+
+ExecuteOrDelayUntilScriptLoaded(AddStatusMethod, "sp.js");
+function AddStatusMethod()
+{
+SP.UI.Status.addStatus("New msg","Adding New Staus to SharePoint 2013 Status bar");
+}
+</script>
+
+SPPageStatusSetter newStatusCtl = new SPPageStatusSetter();
+
+String msg = "This is an example of SharePoint 2013 Status Bar";
+newStatusCtl.AddStatus("New msg", msg, SPPageStatusColor.Blue);
+this.Controls.Add(newStatusCtl);
+
+References
+http://www.learningsharepoint.com/2012/12/28/status-bar-in-sharepoint-2013/

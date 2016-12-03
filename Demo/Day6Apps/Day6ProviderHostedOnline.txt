@@ -1,0 +1,6 @@
+https://msdn.microsoft.com/en-us/library/office/fp142381.aspx
+
+Create a new Proviedr Hosted App in Visual Studio
+Change the Permission for scope Site Collection
+
+

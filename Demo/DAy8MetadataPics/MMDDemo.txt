@@ -1,0 +1,8 @@
+# in the news feeed
+[Tag feature]
+
+
+Please add a term from the link _layouts/15/termstoremanager.aspx
+Site Settings =? Term Store Management
+Create a list Student(No need to create if already exists)
+Add a Managed Metadata Column pointing to "Food" or "Location" term set.

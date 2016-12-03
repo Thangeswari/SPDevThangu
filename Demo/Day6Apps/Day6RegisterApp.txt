@@ -1,0 +1,96 @@
+1. _layouts/appregnew.aspx
+
+The app identifier has been successfully created.
+Client Id:  	67d5e399-99bf-4c7b-acc1-7dd535ec197c
+Client Secret:  	Lns3qnBsUyAeP7xL/RJmCds/VgmZnOIRfig3XkX2Ilk=
+Title:  	RemoteApp
+App Domain:  	localhost
+Redirect URI:  	https://localhost
+
+<appSettings>
+  <add key="ClientId" value="67d5e399-99bf-4c7b-acc1-7dd535ec197c"/>
+  <add key="ClientSecret" value="Lns3qnBsUyAeP7xL/RJmCds/VgmZnOIRfig3XkX2Ilk="/>
+</appSettings>
+
+_layouts/appinv.aspx
+
+
+  <AppPermissionRequests AllowAppOnlyPolicy="true">< AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Manage"/></AppPermissionRequests>
+
+<AppPermissionRequests AllowAppOnlyPolicy="true">
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Manage" />
+</AppPermissionRequests>
+
+https://msdn.microsoft.com/en-us/library/office/fp142383.aspx?f=255&MSPPError=-2147217396
+7b7b899c-98ad-4812-8722-287188d95035
+
+Client Id:  	7b7b899c-98ad-4812-8722-287188d95035
+Client Secret:  	x8B+pcAthGGuj1Ru4kwAwGUWPHzok+BCCRZpVdfc13E=
+Title:  	ConsoleApp
+App Domain:  	localhost
+Redirect URI:  	https://localho
+
+<AppPermissionRequests AllowAppOnlyPolicy="true">
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Manage" />
+</AppPermissionRequests>
+http://sharepoint/content/tenant
+
+<AppPermissionRequests AllowAppOnlyPolicy="true">
+    <AppPermissionRequest Scope="http://sharepoint/content/tenant" Right="Manage" />
+</AppPermissionRequests>
+
+eps to provide tenant admin permission for app only add-in:
+
+Register app id for the add-in under normal site collection in the tenant where add-in will be deployed.
+URL: https://[tenant].sharepoint.com/_layouts/15/appregnew.aspx
+Provide necessary details for the add-in registration and register ID and secret for your add-in
+Move to appinv.aspx page under your tenant admin site
+URL: https://[tenant]-admin.sharepoint.com/_layouts/15/appinv.aspx
+Perform a lookup for the app id registered in previous steps in appinv.aspx page
+Provide needed permissions for your add-in registration
+Perform trust for the updated add-in registration
+Notice that this operation has to be completed under the tenant administration site and account used for these operations will need to have tenant administrative permissions. If you are providing lower level permissions for your add-in, you can complete those under normal site collection URLs with lower permissions.
+
+Code below:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OfficeDevPnP.Core;
+using Microsoft.SharePoint.Client;
+using System.Configuration;
+
+
+namespace ConsoleApplicationCSOM
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string siteUrl = "https://sharepointisgreat.sharepoint.com/sites/edureka/<yourname>";
+            
+            var authMgr = new AuthenticationManager();
+            //PnP Authentication Manage code to authenticate the SharePoint online site  
+            ClientContext cc = new AuthenticationManager().GetAppOnlyAuthenticatedContext(siteUrl, ConfigurationManager.AppSettings["ClientId"], ConfigurationManager.AppSettings["ClientSecret"]);
+            /*
+            //Code to add a new list to web using native CSOM  
+            Web web = context.Web;  
+            ListCreationInformation listInfo = new ListCreationInformation();  
+            listInfo.Title = “WithoutPnP”;  
+            listInfo.TemplateType = (int)ListTemplateType.GenericList;  
+            List list1 = web.Lists.Add(listInfo);  
+   
+            list1.Update();  
+            context.ExecuteQuery();  
+            */
+            //Code to add a new list to web using PnP extension method  
+            var list2 = cc.Web.CreateList(ListTemplateType.GenericList, "WithPnP", false);
+            Console.WriteLine("List created successfully");
+            Console.ReadLine();
+        }
+    }
+}
+
+References:
+https://msdn.microsoft.com/en-us/pnp_articles/how-to-provide-add-in-app-only-tenant-administrative-permissions-in-sharepoint-online

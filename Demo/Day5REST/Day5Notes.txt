@@ -1,0 +1,74 @@
+Temporary Content
+https://sharepointisgreat.sharepoint.com/sites/Edureka/OctoberBatch
+
+SharePoint Quiz and Games
+
+SharePoint Javascript and REST
+
+Steps to CSOM:
+
+PLease logon to your Office 365 account or your Edureka subsite
+https://sharepointisgreat.sharepoint.com/sites/Edureka/[YourName]
+
+Click "Add Page" called "CSOMDemo"
+
+Edite PAge=> Insert =>Web Part=> Media and Content=>Script Editor
+(or) Edit Page => Insert=>Embed Code
+
+Add a Script Editor Web Part and 
+<script>
+alert("Hello");
+console.log("Hello");
+</script>
+
+Additional Javascript codes
+https://sharepointisgreat.sharepoint.com/sites/Edureka/OctoberBatch/Day5CSOMJSBasics.txt
+
+Steps to Add List Item:
+
+Create a list called Student
+
+Add a page "AddListItem"
+
+Add a Content Editor Web Part and add the following link
+https://sharepointisgreat.sharepoint.com/sites/Edureka/OctoberBatch/Day5JSAddListItemParam.txt
+
+Rest
+
+GET - Read data
+post - Update,Delete,Create 
+
+
+REST endpoint
+
+SharePoint Site Title
+https://sharepointisgreat.sharepoint.com/sites/Edureka/<YourName>/_api/site/title
+SharePoint Web Title
+https://sharepointisgreat.sharepoint.com/sites/Edureka/<YourName>/_api/web/title
+SharePoint List
+https://sharepointisgreat.sharepoint.com/sites/Edureka/<YourName>/_api/web/lists/getbytitle('Student')
+SharePoint First List Item
+https://sharepointisgreat.sharepoint.com/sites/Edureka/<YourName>/web/lists/getbytitle('Student')/items(1)
+https://sharepointisgreat.sharepoint.com/sites/Edureka/<YourName>/_api/web/lists/getbytitle('Student')/items?$select=Title&$order=Title&$filter=startswith(Title,"A"),
+SharePoint Current User
+https://sharepointisgreat.sharepoint.com/sites/Edureka/<YourName>/_api/web/currentuser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

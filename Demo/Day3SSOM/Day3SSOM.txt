@@ -1,0 +1,78 @@
+Demo:
+Revision
+$farm = Get-SPFarm
+$farm.Id
+$farm.CurrentUserIsAdministrator()
+$farm.Servers
+$farm.Services
+$farm.Services| select TypeName
+$ams= $farm.Services| ?{$_.TypeName–eq"App Management Service"}
+$svc=$ams.Instances
+$svc.Applications
+
+$farm.Servers
+$farm.Services
+
+$farm | GM
+(What is online status)
+
+To check the actual status, view the ServiceInstance(Stopped service show Disabled status)
+
+
+SharePoint Console Application
+
+1. Add List and list item
+SPList oList = oWebsite.Lists["Tasks"];
+oList.Title="New_Title";
+oList.Description="List_Description";
+oList.Update();
+
+
+PowerShell to create a list and list item
+
+2. Create a Content Type,Site Column,List
+
+3. Event Receiver to cancel List item deletion
+
+4. SharePoint Timer Jobs
+
+Custom Ribbon,Site Definition,Web Template
+CAML QUERY
+SPQuery query = new SPQuery();
+query.Viewfields = @"<FieldRef Name='Title'/><FieldRef Name='Expires'/>";
+query.Query =
+@"<Where>
+<Lt>
+<FieldRef Name='Expires'/>
+<Value Type='DateTime'><Today/></Value>
+</Lt>
+</Where>";
+SPList list = SPContext.Current.Web.Lists.TryGetList("Announcements");
+SPListItemCollections items = list.GetItems(query);
+
+Error Logging
+Add-PSSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
+ 
+$diagSvc = [Microsoft.SharePoint.Administration.SPDiagnosticsService]::Local
+$category = new-object Microsoft.SharePoint.Administration.SPDiagnosticsCategory("My Custom Category",
+                                   [Microsoft.SharePoint.Administration.TraceSeverity]::Monitorable,
+                                  [Microsoft.SharePoint.Administration.EventSeverity]::Error )
+$diagSvc.WriteTrace(0, $category, [Microsoft.SharePoint.Administration.TraceSeverity]::Monitorable, "This is our custom error message writted from PowerShell" )
+
+SPDiagnosticsCategory category = new SPDiagnosticsCategory("My Custom  Category",TraceSeverity.High,EventSeverity.ErrorCritical);
+            SPDiagnosticsService.Local.WriteTrace(0,category,TraceSeverity.High,"This is our custom error message writted from SharePoint 2013 Server object model");
+
+
+
+Lists
+Docuemnt Libnrary
+
+Site Columns
+Content Type
+
+Content Type - FruitsCT
+
+Site Columns - Title
+               Color (Choice)
+
+Fruits - FruitsCT

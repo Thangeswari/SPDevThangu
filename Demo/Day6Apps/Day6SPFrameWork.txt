@@ -1,0 +1,17 @@
+https://channel9.msdn.com/blogs/OfficeDevPnP/SharePoint-Framework-Tutorial-1-HelloWorld-WebPart
+http://dev.office.com/sharepoint/docs/spfx/web-parts/get-started/build-a-hello-world-web-part
+
+https://collab365.conferencehosts.com/confs/Global2016/c365globaldrisgill/ConfPages/SessionRoom.aspx
+1. Install nodejs and check for latest
+npm -g install npm@next
+
+2. Install Yeoman and gulp
+npm i -g yo gulp
+
+npm i -g @microsoft/generator-sharepoint 
+
+3. yo @microsoft/sharepoint
+
+gulp serve
+
+https://your-sharepoint-site/_layouts/workbench.aspx

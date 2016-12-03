@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.SharePoint.Client;
+using Microsoft.SharePoint.Client.Taxonomy;
+using System.Collections.ObjectModel;
+ 
+namespace ManagedMetadataClient
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // ClienContext - Get the context for the SharePoint Site 
+            // SharePoint site URL - http://w15-sp/
+            ClientContext clientContext = new ClientContext("http://w15-sp/");
+ 
+            // Get the TaxonomySession
+            TaxonomySession taxonomySession = TaxonomySession.GetTaxonomySession(clientContext);
+ 
+            // Get the term store by name
+            TermStore termStore = taxonomySession.TermStores.GetByName("Fruits");            
+ 
+            // Get the term group by Name
+            TermGroup termGroup = termStore.Groups.GetByName("Food");
+ 
+            // Get the term set by Name
+            TermSet termSet = termGroup.TermSets.GetByName("Apple");
+ 
+            // Get all the terms 
+            TermCollection termColl = termSet.Terms;
+ 
+            clientContext.Load(termColl);
+ 
+            // Execute the query to the server
+            clientContext.ExecuteQuery();
+ 
+            // Loop through all the terms
+            foreach (Term term in termColl)
+            {
+                // Display the term name
+                Console.WriteLine(term.Name);
+            }
+            Console.ReadLine();
+        }
+    }
+}

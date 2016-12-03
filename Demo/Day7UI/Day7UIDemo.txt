@@ -1,0 +1,235 @@
+Thank you all..Happy Diwali..
+Tomorrows class on October 30 postponed to November 12 2016
+Next class on November 5...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thank you for the actively doing hands on in a short time...Hope you are all enjoying the Diwali and this session..
+
+Short Break
+
+10:10 pm -
+12:40 am - 
+
+After the break, Advanced UI concepts in SharePoint and demo.
+
+Discussion on when to have next class 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tresure Hunt
+
+Clue 1. Where to find the deleted docuements?
+
+
+Search for a file Final.aspx in the link 
+Find the file "Final.aspx" Open the Final.aspx and go to the Web Part Maintenance Page
+
+?contents=1
+
+
+Home About Us  Contact Us
+
+Footer
+
+SharePoint 2013
+
+which feature for UI design? - Publishing
+
+oslo and seattle 
+
+minimal.master
+
+Publishing site collection
+
+Themes - Template in PPT. Color,Font
+Color Palette
+Composed Look
+Designer Manager
+Page Lyouts
+Custome Search Rendition
+
+
+Custom Composed Look
+
+Get the custom Color Palette Link
+https://sharepointisgreat.sharepoint.com/sites/PublishDemo/_catalogs/theme/15/Palette005.spcolor
+
+https://sharepointisgreat.sharepoint.com/sites/PublishDemo/_catalogs/theme/15/fontscheme004.spfont
+
+https://sharepointisgreat.sharepoint.com/sites/PublishDemo/_catalogs/masterpage/seattle.master
+
+sites/Edureka/_catalogs/masterpage/seattle.master
+
+Gear-> Site Settings-> Composed Looks
+
+New Item
+
+Paste the following links:
+
+https://sharepointisgreat.sharepoint.com/sites/Edureka/_catalogs/masterpage/seattle.master
+
+https://sharepointisgreat.sharepoint.com/sites/Edureka/_catalogs/theme/15/Palette001.spcolor
+
+Test new composed look
+
+Chage the Look-> Custom in the last page
+
+
+Create new Page (Gear-> New Page -> DemoCSS
+
+
+Select any element on the page(Copy the ID)[Right click=> Inspect]
+
+Apply css
+
+backgroud color
+hiding the element
+
+Embed code
+
+<style>
+.o365cs-nav-brandingText
+{
+
+background-color:blue;
+}
+</style>
+
+HTML convert that to SharePoint Master Page
+
+1. Design the HTML page and convert to Master page
+(Open SharePoint Designer,Make a copy of the SharePoint Master Page and start the changes)
+(convert minimal )
+
+2. SharePoint Snippet for adding Sharepoint elements.
+
+1. Navigation
+2. Video/Slideshow
+3. Search
+
+CSS changes
+
+3.  Upload and set the new Master Page
+
+
+Font (font-family,h1,h2,  text)
+
+Color - Palette(color)
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SharePoint UI Page Design
+
+Can you hear and see the screen?
+One word or sentence about App
+
+Reusable..
+
+App is self contained pice of funcationality
+
+certificate in Provided Hosted App,CSOM Model for PHApps,JSOM model for SP hosted app
+
+Apps Types-SharePoint hosted, Provider hosted apps
+
+
+
+
+HTML Basics
+CSS Basics
+
+Layouts - Application
+
+Forms - AllItems.aspx
+
+Editform.aspx
+
+Themes
+SPColor.xml
+SPFont.xml
+
+Composed Look
+Color,Font,Background Image,Master Page
+
+Custom Theme
+Create a copy of SPColor,SPFont,Master Page
+
+Code to apply branding
+https://msdn.microsoft.com/en-us/pnp_articles/use-css-to-brand-pages
+
+Image Rendition Demo
+
+Publishing Site
+
+$(#).attr(style,"background-color:#444"
+
+Publishing Site
+
+
+PowerShell
+
+$spWeb= Get-Web ""
+$spWeb.AlternateCssUrl = ""

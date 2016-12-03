@@ -1,0 +1,27 @@
+1. Login to SharePoint Server in Microsoft Virtual Labs https://technet.microsoft.com/en-us/virtuallabs
+2. Choose "Introduction to SharePoint"
+3. Open Internet Explorer
+4. Open "http://intranet.contoso.com"
+5. Create Team Site
+6. Create List and Document Library
+7. Manage Features
+	1. View List/Site Permissions
+	2. Add a Web Part to a Web Part PAge
+	3. View Master Page Gallery
+	4. Approval and Feedback Workflow
+
+
+1. Create Picture Library
+2. Add a link to Quick Launch 
+3. Create a List
+4. Add an Item to a List
+5. Create a Web Part Page(3 zones)
+6. Add a Web Part
+7. Remove a Web Part(?contents=1)
+8. View Site Contents(/_layouts/viewlsts.aspx)
+9. Change the Look of the Site
+10.Add User to Owners Group
+
+SharePoint Online and SharePoint Admin Center
+https://sharepointisgreat.sharepoint.com
+https://sharepointisgreat-admin.sharepoint.com

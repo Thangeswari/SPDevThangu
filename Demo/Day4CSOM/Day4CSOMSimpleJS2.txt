@@ -1,0 +1,29 @@
+
+<a href="javascript:getSiteDetails()">Get Site Details</a>
+
+<script type="text/javascript">
+// This function prepares, loads, and then executes a SharePoint query to get 
+    // the current users information
+    function getSiteDetails() {
+var context = new SP.ClientContext.get_current();
+var siteCollection= context.get_web();
+
+        context.load(siteCollection);
+        context.executeQueryAsync(onGetSiteNameSuccess, onGetSiteNameFail);
+alert('Welcome to Site ' + siteCollection.get_url());
+    }
+
+    // This function is executed if the above call is successful
+    // It replaces the contents of the 'message' element with the user name
+    function onGetSiteNameSuccess() {
+        alert('Welcome to Site ' + siteCollection.get_url());
+        console.log('Welcome to Site ' + siteCollection.get_url());
+    }
+
+    // This function is executed if the above call fails
+    function onGetSiteNameFail(sender, args) {
+        alert('Failed to get site name. Error:' + args.get_message());
+    }
+
+</script>
+
