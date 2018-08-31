@@ -1,0 +1,71 @@
+	
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<div id="chart_div"></div>
+<script type="text/javascript">
+var collListItem; //ListItems
+        var chartX = [];  //X-Axis Labels
+        var chartY = [];  //Y-Axis Values
+        var dataChart =[];
+
+        
+        var listName = "Fruits"; //Data List Name
+        var xAxisName = "Title";    //X-Axis Label Names from List
+        var yAxisName = "Value";    //Y-Axis Values from List
+         var yAxisName2 = "ValueNew";    //Y-Axis Values from List
+        var chartId = "chartContainer";    //Chart Canvas Div
+        dataChart.push(['Fruits', 'OldValue', 'NewValue']);
+
+        SP.SOD.executeOrDelayUntilScriptLoaded(function () {
+
+            var clientContext = new SP.ClientContext.get_current();
+            var oList = clientContext.get_web().get_lists().getByTitle(listName);
+
+            var camlQuery = new SP.CamlQuery();
+            camlQuery.set_viewXml('<View></View>');
+            this.collListItem = oList.getItems(camlQuery);
+
+            clientContext.load(collListItem);
+
+            clientContext.executeQueryAsync(function () {
+
+                var listItemEnumerator = collListItem.getEnumerator();
+
+                //Create Points from ListData
+                while (listItemEnumerator.moveNext()) {
+                    var oListItem = listItemEnumerator.get_current();
+                    chartX.push(oListItem.get_item(xAxisName));
+                    chartY.push(oListItem.get_item(yAxisName));
+                    dataChart.push( [oListItem.get_item(xAxisName), oListItem.get_item(yAxisName), oListItem.get_item(yAxisName2)]);
+                    console.log(dataChart);
+                }
+
+                
+console.log(dataChart);
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawMultSeries);
+function drawMultSeries() {
+      var data = google.visualization.arrayToDataTable(dataChart);
+
+      var options = {
+        title: 'Current and New Values for Fruits',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'Max Value',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Fruits'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+});
+
+            
+
+        }, 'SP.js');
+
+</script>
