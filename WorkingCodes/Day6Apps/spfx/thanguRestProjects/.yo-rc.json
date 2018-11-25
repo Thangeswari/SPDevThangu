@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": false,
+    "environment": "spo",
+    "version": "1.6.0",
+    "libraryName": "rest-list-data-tbl",
+    "libraryId": "378315a2-c61d-4e25-a3e4-ab3c0998a491",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "thangu-list-data-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/thanguListData/ThanguListDataWebPart.js",
+          "manifest": "./src/webparts/thanguListData/ThanguListDataWebPart.manifest.json"
+        }
+      ]
+    },
+    "latest-list-data-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/latestListData/LatestListDataWebPart.js",
+          "manifest": "./src/webparts/latestListData/LatestListDataWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "thanguScript": {
+      "path": "./src/webparts/thanguListData/Thangu.js",
+      "globalName": "thanguScript"
+    },
+    "thanguCss": {
+      "path": "./src/webparts/thanguListData/Thangu.css",
+      "globalName": "thanguCss"
+    },
+    "jQuery": {
+      "path": "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js",
+      "globalName": "jQuery"
+    }
+  },
+  "localizedResources": {
+    "ThanguListDataWebPartStrings": "lib/webparts/thanguListData/loc/{locale}.js",
+    "LatestListDataWebPartStrings": "lib/webparts/latestListData/loc/{locale}.js"
+  }
+}

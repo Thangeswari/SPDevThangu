@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "rest-list-data-tbl-client-side-solution",
+    "id": "378315a2-c61d-4e25-a3e4-ab3c0998a491",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/rest-list-data-tbl.sppkg"
+  }
+}
