@@ -1,0 +1,17 @@
+1. Create a new App with name RemoteApp from _layouts/appregnew.aspx
+
+The app identifier has been successfully created.
+Client Id:  	xxxxxxxx-99bf-4c7b-acc1-7dd535ec197c
+Client Secret:  	xxxxxxAeP7xL/RJmCds/VgmZnOIRfig3XkX2Ilk=
+Title:  	RemoteApp
+App Domain:  	localhost
+Redirect URI:  	https://localhost
+
+Store the ClientID and Client Secret in a local notepad file.
+
+2. Update the security from _layouts/appinv.aspx.
+In the LookUp, give the Client ID from above.
+
+<AppPermissionRequests AllowAppOnlyPolicy="true">
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read" />
+</AppPermissionRequests>

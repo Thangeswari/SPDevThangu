@@ -1,0 +1,9 @@
+Open your SharePoint site.
+Create a List named Fruits.
+Add few Fruits.
+Append the site with the following URL and observe the results:
+/_api/site/title
+/_api/web/lists/getbytitle('Fruits')
+/_api/web/lists/getbytitle('Fruits')/items(1)
+_api/web/lists/getbytitle('Fruits')/items?$select=Title&$order=Title&$filter=startswith(Title,"A")
+_api/web/currentuser
