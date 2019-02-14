@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{334e80a0-a0af-47de-9214-280cf0e7738e}"
+       Name="FruitColor"
+       DisplayName="Fruit Color"
+       Type="Text"
+       Required="FALSE"
+       Group="Custom Site Columns"
+       JSLink="~sites/Scripts/FruitColor.js">
+  </Field>
+</Elements>

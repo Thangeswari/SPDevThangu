@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="FruitsApp" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/FruitsApp" Description="My List Instance">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="Title">Apple</Field>
+          <Field Name="FruitColor">Red</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Mango</Field>
+          <Field Name="FruitColor">Yellow</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Kiwi</Field>
+          <Field Name="FruitColor">Brown</Field>
+        </Row>
+      </Rows>
+    </Data>
+  
+
+  </ListInstance>
+</Elements>
