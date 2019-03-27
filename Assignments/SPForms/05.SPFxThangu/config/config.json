@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "css-thangu-1-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/cssThangu1/CssThangu1WebPart.js",
+          "manifest": "./src/webparts/cssThangu1/CssThangu1WebPart.manifest.json"
+        }
+      ]
+    },
+    "rest-list-items-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/restListItems/RestListItemsWebPart.js",
+          "manifest": "./src/webparts/restListItems/RestListItemsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "thanguScript": {
+      "path": "./src/webparts/cssThangu1/Thangu.js",
+      "globalName": "thanguScript"
+    },
+    "thanguScriptSP": {
+      "path": "./src/webparts/restListItems/ThanguSP.js",
+      "globalName": "thanguScriptSP"
+    }
+  },
+  "localizedResources": {
+    "CssThangu1WebPartStrings": "lib/webparts/cssThangu1/loc/{locale}.js",
+    "RestListItemsWebPartStrings": "lib/webparts/restListItems/loc/{locale}.js"
+  }
+}

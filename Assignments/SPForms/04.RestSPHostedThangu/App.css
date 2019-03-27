@@ -1,0 +1,7 @@
+﻿/* Place custom styles below */
+.thanguCSS{
+    border:1px solid black;
+    border-radius:25px;
+    background-color:forestgreen;
+    padding:10px;
+}

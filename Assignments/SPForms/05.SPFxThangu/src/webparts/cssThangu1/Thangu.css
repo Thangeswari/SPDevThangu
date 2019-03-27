@@ -1,0 +1,12 @@
+.divcssThangu{
+    text-align:center;
+    vertical-align:middle;
+    }
+.btncssThangu{
+    text-align:center;
+    border:1px solid black;
+    border-radius:25px;
+    background-color:forestGreen;
+    color:wheat;
+    padding:20px;
+    }

@@ -1,0 +1,9 @@
+﻿ClearCollect( TimeSheet1, 
+{ UserName:"Thangu", HoursWorked:3},    
+{ UserName:"Alice", HoursWorked:5},
+{ UserName:"Thangu", HoursWorked:3},
+{ UserName:"Alice", HoursWorked:2}
+);
+ClearCollect( TimeSheet2Group, GroupBy( TimeSheet1, "UserName","Total") );
+ClearCollect( TimeSheet3Sum, AddColumns( TimeSheet2Group, "Sum of User Worked", Sum( Total, HoursWorked ) ) );
+
