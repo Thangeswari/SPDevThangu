@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>My Second Javascript Code-DOM</h1>
+<div id="thangu1">
+</div>
+
+
+
+
+
+<script>
+document.write(window.location);
+document.write("<br>");
+
+document.write(window.navigator.appVersion);
+
+//updateThangu=document.getElementById("thangu1");
+//updateThangu.innerHTML="Thangu";
+/*
+openWin();
+setTimeout(function(){alert("Pop Up Message");},3000);
+
+function openWin() { window.open("http://www.w3schools.com"); } 
+*/
+p=document.createElement("p");
+text=document.createTextNode("Hello");
+p.appendChild(text);
+document.write(p);
+
+divTag=document.getElementById("thangu1");
+divTag.appendChild(p);
+
+</script>
+</body>
+</html> 

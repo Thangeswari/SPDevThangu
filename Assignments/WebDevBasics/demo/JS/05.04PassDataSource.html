@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+<h1>Javascript Example To show Data Passing</h1>
+<p>Demontrating Data passing</p>
+<a href="05.PassDataDestination.html" onclick="goNext('05.PassDataDestination.html'); return false">Next Page</a>
+<form name="form1">
+<input type="text" name="userName" id="userName"/>
+</form>
+<script language="JavaScript" type="text/javascript">
+function goNext(url) {
+    var data = document.forms[0].userName.value;
+    location.href = url + "?" + escape(data);
+}
+</script>
+
+</body>
+
+</html>

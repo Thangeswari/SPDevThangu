@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body onload="alert('PageLoaded');">
+<h1>My Third Javascript Code-Functions</h1>
+<a href="http://google.com" onClick="alert('Your function!')">Google</a>
+<button>Change color</button>
+<script>
+function getArgCount(){ return arguments.length;}
+var argCount= getArgCount(1,2,3);
+console.log(argCount);
+
+var btn = document.querySelector('button');
+
+function random(number) {
+  return Math.floor(Math.random()*(number+1));
+}
+//onclick,onmouseover
+btn.onmouseover = function() {
+  var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+  document.body.style.backgroundColor = rndCol;
+}
+</script>
+</body>
+</html> 

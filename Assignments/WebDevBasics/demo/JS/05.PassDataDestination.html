@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body onLoad=readData();>
+<h1>Javascript Example To show Data Passing</h1>
+<p>Demontrating Data passing</p>
+
+<form name="form1">
+<input type="text" name="userName" id="userName"/>
+</form>
+<script>
+function readData() {
+    var srchString = unescape(location.search.substring(1, location.search.length));
+    if (srchString.length > 0) {
+        document.forms[0].userName.value = srchString;
+    }
+}
+</script>
+
+
+</body>
+
+</html>

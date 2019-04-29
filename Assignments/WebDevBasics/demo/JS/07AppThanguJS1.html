@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+font-family:"Arial";
+font-size:30px;
+margin:0px auto;
+width:480px;
+}
+td{border:1px solid black;padding:10px;border-radius:5px;background-color:#ddd;text-align:center;}
+</style>
+</head>
+<body>
+<h1>My First Javascript App</h1>
+<div id="thanguID">
+</div>
+<script>
+//Creating an Array to Hold Fruit details
+var fruitDetails=["Name","Price"];
+var fruitsValues= [
+["Apple","200"],
+["Mango","200"],
+["Orange","500"],
+["Banana","100"],
+["Avocado","100"],
+];
+
+function createTable(){
+//Get Total Price
+var totalPrice=0;
+for(var count=0;count<fruitsValues.length;count++){
+currentItemPrice=Number(fruitsValues[count][1]);
+totalPrice+=currentItemPrice;
+}
+//alert(totalPrice);
+
+var table=document.createElement("table");
+for(var count=0;count<fruitsValues.length;count++){
+currentItemPrice=Number(fruitsValues[count][1]);
+//totalPrice+=currentItemPrice;
+//Creating Display dynamically
+var tr=document.createElement("tr");
+var td1=document.createElement("td");
+var textFruitName=document.createTextNode(fruitsValues[count][0]);
+td1.appendChild(textFruitName);
+tr.appendChild(td1);
+var td2=document.createElement("td");
+var textFruitPrice=document.createTextNode(fruitsValues[count][1]);
+td2.appendChild(textFruitPrice);
+tr.appendChild(td2);
+table.appendChild(tr);
+var td3=document.createElement("td");
+var btnFruitDiscount=document.createElement("INPUT");
+btnFruitDiscount.setAttribute("type", "button");
+btnFruitDiscount.setAttribute("value", "Apply Discount");
+btnFruitDiscount.setAttribute("id", "EditThangu"+count);
+btnFruitDiscount.setAttribute("onclick", "ApplyRowsJS(this);");
+td3.appendChild(btnFruitDiscount);
+td3.style.background="white";
+tr.appendChild(td3);
+}
+
+//Add Total Value
+var tr=document.createElement("tr");
+var td1=document.createElement("td");
+var textFruitTotal=document.createTextNode("Total");
+td1.appendChild(textFruitTotal);
+td1.style.background="white";
+tr.appendChild(td1);
+var td2=document.createElement("td");
+var textFruitPrice=document.createTextNode(totalPrice);
+td2.appendChild(textFruitPrice);
+td2.style.background="white";
+tr.appendChild(td2);
+table.appendChild(tr);
+contentNode=document.getElementById("thanguID");
+contentNode.appendChild(table);
+//alert(totalPrice);
+}
+
+createTable();
+
+function ApplyRowsJS(btn){
+var activeRow = btn.parentNode.parentNode.rowIndex;
+//alert(activeRow);
+newPrice=Number(fruitsValues[activeRow][1])*0.5;
+fruitsValues[activeRow][1]=newPrice;
+alert(fruitsValues);
+createTable();
+}
+
+
+</script>
+</body>
+</html> 

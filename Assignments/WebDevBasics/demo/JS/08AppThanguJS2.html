@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Thangus Web Development Exercices</title>
+<style>
+.body{
+text-align:center;
+font-family:Arial;
+width:480px;
+margin:0 auto;
+}
+div {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.button{
+border-radius: 10px;
+    background: #73AD21;
+    padding:10px; 
+    width: 300px;
+    height: 100px; 
+margin:auto;display:block
+}
+table{border-collapse: collapse;width: 100%;} 
+td{border:1px solid black;padding:10px;border-radius:5px;background-color:#ddd;text-align:center;} 
+th{border:1px solid black;text-align:center;background-color:#4CAF50;color:white;padding:10px}
+</style>
+</head>
+<body>
+<h1>Thangus CRUD Javascript</h1>
+<div id="thanguTable">
+</div>
+<script>
+var headersThangu=["Title","Color"];
+var fruitsValues= [
+["Apple","Red"],
+["Mango","Yellow"]
+];
+
+function createTable(){
+divTableElement=document.getElementById("thanguTable");
+divTableElement.innerHTML="";
+var table = document.createElement('table');
+
+
+var tr = table.insertRow(0);
+for(var i=0;i<headersThangu.length;i++){
+var th = document.createElement('th');
+th.innerHTML = headersThangu[i];
+tr.appendChild(th);
+}
+
+var th = document.createElement('th');
+th.innerHTML = "Edit/Delete/Add";
+tr.appendChild(th);
+
+for(var i=0;i<fruitsValues.length;i++){
+var tr = table.insertRow(i+1);
+for(var j=0;j<fruitsValues[i].length;j++){
+td=tr.insertCell(j);
+var xybtn = document.createElement("INPUT");
+xybtn.setAttribute("type", "hidden");
+xybtn.setAttribute("id", fruitsValues[i][j]+i+j);
+xybtn.setAttribute("type", "hidden");
+td.appendChild(xybtn);
+var tx = document.createTextNode(fruitsValues[i][j]);
+td.appendChild(tx);
+}
+
+td=tr.insertCell(j);
+var xzbtn = document.createElement("INPUT");
+xzbtn.setAttribute("type", "button");
+xzbtn.setAttribute("value", "Edit");
+xzbtn.setAttribute("id", "EditThangu"+i);
+xzbtn.setAttribute("onclick", "EditRowsJS(this);");
+td.appendChild(xzbtn);
+var xbtn = document.createElement("INPUT");
+xbtn.setAttribute("type", "button");
+xbtn.setAttribute("value", "Delete");
+xbtn.setAttribute("onclick", "DeleteRowsJS(this);");
+td.appendChild(xbtn);
+}
+
+var tr = table.insertRow(i+1);
+for(var j=0;j<headersThangu.length;j++){
+td=tr.insertCell(j);
+var xInput = document.createElement("INPUT");
+xInput.setAttribute("type", "text");
+xInput.setAttribute("name", headersThangu[j]);
+xInput.setAttribute("id", headersThangu[j]);
+td.appendChild( xInput);
+}
+td=tr.insertCell(j);
+var xbtnAdd = document.createElement("INPUT");
+xbtnAdd.setAttribute("type", "button");
+xbtnAdd.setAttribute("value", "Add");
+xbtnAdd.setAttribute("onclick", "AddRowsJS();");
+td.appendChild(xbtnAdd);
+
+divTableElement.appendChild(table);
+
+
+}
+
+window.onload = function () {
+createTable();
+};
+
+function AddRowsJS(){
+var fname=document.getElementById(headersThangu[0]).value;
+var color=document.getElementById(headersThangu[1]).value;
+var newItem=[fname,color];
+fruitsValues.push(newItem);
+//alert(fruitsValues);
+createTable();
+}
+
+function EditRowsJS(btn){
+var activeRow = btn.parentNode.parentNode.childNodes;
+var trNode=btn.parentNode.parentNode;
+console.log(trNode);
+if(document.getElementById(activeRow[0].firstChild.id).type="hidden"){
+for(var i=0;i<(activeRow.length-1);i++){
+console.log(activeRow[i].firstChild.id);
+var inputHidden=document.getElementById(activeRow[i].firstChild.id);
+inputHidden.type="text";
+}
+btn.type="hidden";
+btn.parentNode.childNodes[1].type="hidden";
+td=trNode.lastChild;
+var xabtnUpdate = document.createElement("INPUT");
+xabtnUpdate.setAttribute("type", "button");
+xabtnUpdate.setAttribute("value", "Save");
+xabtnUpdate.setAttribute("id", "SaveThangu");
+xabtnUpdate.setAttribute("onclick", "SaveRowsJS(this);");
+td.appendChild(xabtnUpdate);
+}
+}
+
+function SaveRowsJS(btn){
+var activeRow = btn.parentNode.parentNode.childNodes;
+var trNode=btn.parentNode.parentNode;
+console.log(trNode);
+for(var i=0;i<(activeRow.length-1);i++){
+console.log(activeRow[i].firstChild.id);
+var inputHidden=document.getElementById(activeRow[i].firstChild.id);
+//alert(btn.parentNode.parentNode.rowIndex-1);
+j=btn.parentNode.parentNode.rowIndex-1;
+//alert(inputHidden.value);
+fruitsValues[j][i]=inputHidden.value;
+}
+createTable();
+
+}
+
+function DeleteRowsJS(btn){
+var confirmDelete=confirm("Are you sure you want to delete?");
+if(confirmDelete){
+var activeRow = btn.parentNode.parentNode.rowIndex-1;
+//alert(activeRow);
+fruitsValues.splice(activeRow,1);
+//alert(fruitsValues);
+createTable();
+}
+}
+
+
+</script>
+</body>
+</html>

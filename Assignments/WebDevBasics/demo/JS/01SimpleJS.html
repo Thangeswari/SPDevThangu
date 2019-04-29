@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>My First Javascript Code</h1>
+<script>
+alert("Welcome to Javascript");
+document.write("Hello World");
+//Declaring todays date
+var date=new Date();
+/*
+Author:Thangu
+Date:30-Apr 2019
+Contact:https://www.thangu.com/contact
+This a simple code to understand JS code
+*/
+console.log("The date is",date);
+//Simple Variables
+var intA=1;
+console.log(typeof(intA));
+console.log("The value of intA is ", intA);
+console.log("The value of intA is ", intA * Math.PI);
+
+var strA="Hello";
+console.log(typeof(strA));
+console.log("The value of strA is ", strA);
+console.log("The value of strA concatenated is ", strA + "World");
+
+var infiniteA=0/0;
+console.log(typeof(infiniteA));
+console.log(infiniteA);
+
+var undefinedA;
+console.log(typeof(undefinedA));
+
+//Conversions
+var strB=1000;
+strB=String(strB);
+console.log(strB+2);
+
+//Arrays
+var fruits=["Apple","Orange","Mango"];
+console.log(fruits);
+console.log(fruits[0]);
+var newFruit=prompt("Enter a new fruit you want to enter");
+fruits.push(newFruit);
+console.log(fruits);
+fruits.pop();
+console.log(fruits);
+
+//Object
+var person = {firstName:"John", lastName:"Doe", age:10, eyeColor:"blue"};
+console.log(person);
+console.log(person.age);
+console.log(person["age"]);
+
+//Greeting
+var now = new Date();
+var greeting = "Good";
+if (now.getHours() > 17)
+   greeting += " evening.";
+else
+   greeting += " day.";
+
+document.write(greeting +"<br/>");
+
+
+//Operations
+console.log(1+1);
+console.log(10*201);
+console.log(1-1);
+console.log(20%2);
+var a=2;
+var b="2";
+if(a===b){
+console.log("a=b");
+}
+
+
+
+
+</script>
+</body>
+</html> 

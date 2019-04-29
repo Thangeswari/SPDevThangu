@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>My Second Javascript Code-Forms</h1>
+<h2> TypeUser Name less than 5 characters</h2>
+<form name="myForm" id="formID" onsubmit="return validateForm()" >
+First Name: <input type="text" name="fname" id="idFName">
+Last Name: <input type="text" name="lname" id="idLName">
+<input type="submit" value="Submit">
+</form>
+<script>
+
+function validateForm(){
+var textBox = document.getElementById("idFName");
+var textLength = textBox.value.length;
+if(textLength > 5)
+{
+    //red
+    textBox.style.backgroundColor = "#FF0000";
+alert("Enter Name < 5 characters");
+return false;
+}
+else
+{
+    //green
+    textBox.style.backgroundColor = "#00FF00";
+return true;
+}
+}</script>
+
+
+
+</script>
+</body>
+</html> 

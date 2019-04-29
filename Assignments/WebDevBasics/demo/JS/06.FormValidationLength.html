@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Javascript Example To Validate Form for length check</h1>
+<h2>Code</h2>
+var textBox = document.getElementsByName("fname");
+var textLength = textBox.value.length;
+if(textLength > 5)
+{
+    //red
+    textBox.style.backgroundColor = "#FF0000";
+}
+else
+{
+    //green
+    textBox.style.backgroundColor = "#00FF00";
+}
+<p>
+</p>
+<h2>Output</h2>
+<script>
+function validateForm(){
+var textBox = document.getElementById("idFName");
+var textLength = textBox.value.length;
+if(textLength > 5)
+{
+    //red
+    textBox.style.backgroundColor = "#FF0000";
+alert("Enter Name < 5 characters");
+return false;
+}
+else
+{
+    //green
+    textBox.style.backgroundColor = "#00FF00";
+return true;
+}
+}</script>
+<h2> TypeUser Name less than 5 characters</h2>
+<form name="myForm" id="formID" onsubmit="return validateForm()" >
+First Name: <input type="text" name="fname" id="idFName">
+Last Name: <input type="text" name="lname" id="idLName">
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html> 
+
