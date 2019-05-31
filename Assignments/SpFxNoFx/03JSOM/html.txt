@@ -1,0 +1,9 @@
+﻿<div id="divThangu1" class="divcssThangu">
+    <h1>See Lists</h1>
+    <input type="button" id="btnThanguRest" class="btncssThangu" value="Lists" onclick="retrieveAllListProperties('${this.context.pageContext.web.absoluteUrl}');"/>
+
+    <div id="thanguDemo"><h2>>Welcome to ${this.context.pageContext.web.title}</h2></div>
+
+    <table id="getDataTable" class="tableThangu"></table>
+
+    </div>

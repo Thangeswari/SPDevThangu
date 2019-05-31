@@ -1,0 +1,5 @@
+Use Visual Studio SP Hosted Add In to generate the XML files
+Create sharepoint/assets in SPFx solution
+Create elements and schema file for the sharepoint objects
+Add the following attributes to ListInstance
+	CustomSchema="schema.xml" FeatureId="00bfea71-de22-43b2-a848-c05709900100"

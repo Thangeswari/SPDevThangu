@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "thanguspfxnewlistdemo-client-side-solution",
+    "id": "89a65a2c-4f56-4a69-ab1d-ec75f3c5d88b",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "features": [{
+      "title": "thanguspfxnewlistdemo-client-side-solution",
+      "description": "thanguspfxnewlistdemo-client-side-solution",
+      "id": "6ba1486b-2898-4247-a5ea-ef2493d2b386",     // <-- Update 'id' with a new GUID
+      "version": "1.0.0.0",
+      "assets": {
+        "elementManifests": [
+          "elements.xml"
+        ],
+        "elementFiles":[
+          "schema.xml"
+        ]
+      }
+    }]
+  
+  },
+  "paths": {
+    "zippedPackage": "solution/thanguspfxnewlistdemo.sppkg"
+  }
+}

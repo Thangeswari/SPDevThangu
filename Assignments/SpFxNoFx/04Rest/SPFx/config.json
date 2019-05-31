@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "rest-thangu-search-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/restThanguSearch/RestThanguSearchWebPart.js",
+          "manifest": "./src/webparts/restThanguSearch/RestThanguSearchWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "thanguScript": {
+      "path": "./src/webparts/restThanguSearch/Thangu.js",
+      "globalName": "thanguScript"
+    },
+    "thanguCss": {
+      "path": "./src/webparts/restThanguSearch/Thangu.css",
+      "globalName": "thanguCss"
+    }
+  },
+  "localizedResources": {
+    "RestThanguSearchWebPartStrings": "lib/webparts/restThanguSearch/loc/{locale}.js"
+  }
+}

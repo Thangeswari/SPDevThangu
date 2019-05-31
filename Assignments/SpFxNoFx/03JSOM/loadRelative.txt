@@ -1,0 +1,24 @@
+﻿function loadjsfile(filename){
+    
+        var fileref=document.createElement('script');
+        fileref.setAttribute("type","text/javascript");
+        fileref.setAttribute("src", filename);
+    
+    if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref);
+}
+function thanguLoadSPAll(siteUrl){
+//Loading JS files
+var init=siteUrl+"/_layouts/15/init.js";
+loadjsfile(init);
+import $_global_init from init;
+var ajax=siteUrl+"/_layouts/15/MicrosoftAjax.js";
+loadjsfile(ajax);
+import Sys from ajax;
+var sprun=siteUrl+"/_layouts/15/SP.Runtime.js";
+loadjsfile(sprun);
+import SP from sprun;
+var sp=siteUrl+"/_layouts/15/SP.js";
+loadjsfile(siteUrl+"/_layouts/15/SP.js");
+import SP from sp;
+}

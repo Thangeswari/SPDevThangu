@@ -1,0 +1,61 @@
+.divcssThangu {
+    text-align: center;
+    vertical-align: middle;
+    }
+
+
+
+    .btncssThangu {
+
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: forestGreen;
+    color: wheat;
+    padding: 20px;
+    }
+
+
+
+    .tableThangu {
+
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+
+    }
+
+
+
+    .tableThangu td {
+
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ddd;
+    text-align: center;
+
+    }
+
+
+
+    .tableThangu th {
+
+    border: 1px solid black;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px
+
+    }
+
+
+
+    .thanguBox {
+
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ddd;
+    text-align: center;
+    }

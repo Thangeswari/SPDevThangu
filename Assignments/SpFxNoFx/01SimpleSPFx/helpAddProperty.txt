@@ -1,0 +1,29 @@
+1. For adding Property Dropdown,import PropertyPaneDropdown
+import {
+  BaseClientSideWebPart,
+  IPropertyPaneConfiguration,
+  PropertyPaneTextField,
+  PropertyPaneDropdown
+} from '@microsoft/sp-webpart-base';
+2. Add interface
+export interface ISimplePropertiesWebPartProps {
+  description: string;
+  color:string;
+}
+
+3. Add groupField
+groupFields: [
+                PropertyPaneTextField('description', {
+                  label: strings.DescriptionFieldLabel
+                }),
+                PropertyPaneDropdown('color', {
+                  label:'color',
+                  options: [
+                    { key: 'Red', text: 'Red' },
+                    { key: 'Yellow', text: 'Yellow' },
+                    { key: 'Blue', text: 'Blue' }
+                  ],
+                  selectedKey:'Red'
+                })
+                
+              ]

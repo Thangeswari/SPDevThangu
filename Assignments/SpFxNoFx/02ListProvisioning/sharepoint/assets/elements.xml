@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{fe90683b-e69e-48f8-b9ef-a9bcd405ed7a}"
+       Name="SpFxThanguFruitColor"
+       DisplayName="Sp Fx Thangu Fruit Color"
+       Type="Choice"
+       Required="FALSE"
+       Group="Custom Site Columns">
+    <CHOICES>
+      <CHOICE>Red</CHOICE>
+      <CHOICE>Green</CHOICE>
+      <CHOICE>Yellow</CHOICE>
+      <CHOICE>Others</CHOICE>
+    </CHOICES>
+  </Field>
+  <ContentType ID="0x010072A6C2EE1F62403DB8D72A36735A7F9A" Name="SpFxThanguContentTypeFruitsDemo" Group="Custom Content Types" Description="My Content Type" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{fe90683b-e69e-48f8-b9ef-a9bcd405ed7a}" DisplayName="Sp Fx Thangu Fruit Color" Required="FALSE" Name="SpFxThanguFruitColor" />
+    </FieldRefs>
+  </ContentType>
+  <ListInstance Title="SpFxThanguFruitsList" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/SpFxThanguFruitsList" Description="My List Instance" CustomSchema="schema.xml" FeatureId="00bfea71-de22-43b2-a848-c05709900100">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="Title">Apple</Field>
+          <Field Name="SpFxThanguFruitColor">Red</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Avocado</Field>
+          <Field Name="SpFxThanguFruitColor">Green</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Mango</Field>
+          <Field Name="SpFxThanguFruitColor">Yellow</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

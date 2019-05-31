@@ -1,0 +1,15 @@
+1. Modify the config.json externals to your js and css
+"thanguScript": {
+      "path": "./src/webparts/<solutionWPName>/Thangu.js",
+      "globalName": "thanguScript"
+    },
+    "thanguCss": {
+      "path": "./src/webparts/<solutionWPName>/Thangu.css",
+      "globalName": "thanguCss"
+    }
+
+2. In the ts webpart file import the external file
+require('thanguScript');
+  require('./Thangu.css');
+
+3. Add code for Thangu.js and Thangu.css

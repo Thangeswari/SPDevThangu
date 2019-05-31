@@ -1,0 +1,6 @@
+﻿/*require('sp-init');
+  require('microsoft-ajax');
+  require('sp-runtime');
+  require('sharepoint');*/
+  require('thanguScript');
+  require('./Thangu.css');

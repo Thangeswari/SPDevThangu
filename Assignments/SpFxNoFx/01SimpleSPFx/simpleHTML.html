@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<head>
+<style>
+#thanguText
+{
+border:1px solid black;
+border-radius:25px;
+padding:25px;
+margin:10px;
+}
+</style>
+
+</head>
+<body>
+<select id="fruits">
+  <option value="red">Red</option>
+  <option value="yellow">Yellow</option>
+  <option value="blue">Blue</option>
+</select> 
+<div id="thanguText" onmouseover="changeColor();" onmouseout="restoreColor();">Apple</div>
+<script>
+function changeColor(){
+eThangu=document.getElementById("fruits");
+var value = eThangu.options[eThangu.selectedIndex].value;
+var text = eThangu.options[eThangu.selectedIndex].text;
+divThangu=document.getElementById("thanguText");
+divThangu.style.background=text;
+}
+function restoreColor(){
+eThangu=document.getElementById("fruits");
+var value = eThangu.options[eThangu.selectedIndex].value;
+var text = eThangu.options[eThangu.selectedIndex].text;
+divThangu=document.getElementById("thanguText");
+divThangu.style.background="white";
+}
+</script>
+</body>
