@@ -1,0 +1,19 @@
+<h1>Fruits</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each listitems}}
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.fields.Title}}</td>
+        <td>{{this.fields.Location}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
