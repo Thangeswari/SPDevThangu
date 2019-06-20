@@ -1,0 +1,11 @@
+body {
+  padding-top: 4.5rem;
+}
+
+.alert-pre {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+table{border-collapse: collapse;width: 100%;} td{border:1px solid black;padding:10px;border-radius:5px;background-color:#ddd;text-align:center;} th{border:1px solid black;text-align:center;background-color:#4CAF50;color:white;padding:10px}

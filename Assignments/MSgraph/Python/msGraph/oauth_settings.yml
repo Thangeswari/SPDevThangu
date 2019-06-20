@@ -1,0 +1,7 @@
+app_id: YOURAPPID
+app_secret: YOURAPPSECRET
+redirect: http://localhost:8000/fruits/callback
+scopes: openid profile offline_access user.read sites.read.all
+authority: https://login.microsoftonline.com/common
+authorize_endpoint: /oauth2/v2.0/authorize
+token_endpoint: /oauth2/v2.0/token
