@@ -32,7 +32,7 @@ console.log("Graph code begins");
 this.context.msGraphClientFactory.getClient().then(
   (client:MSGraphClient):void =>{
     client
-    .api("/sites/thangeswari.sharepoint.com,519834a7-fdb4-4739-9da5-a98a4cf0a378,3c9b43e0-b765-45bb-83d7-f32463fcc0fd/lists/7d1ca4cb-f44b-4c3e-8a21-7ab56e8ec2c2/items")
+    .api("/sites/XXX.sharepoint.com,SITEID,SITEID/lists/LISTID/items")
     .version("v1.0")
     .expand("fields")
     .get((err,res)=>{
