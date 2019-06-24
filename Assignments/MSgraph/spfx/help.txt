@@ -1,0 +1,5 @@
+yo @microosft/sharepoint
+
+Modify package-solution.json with webApiPermissions
+
+Update GraphWebPart.ts to include MicrosoftGraph and update render method.

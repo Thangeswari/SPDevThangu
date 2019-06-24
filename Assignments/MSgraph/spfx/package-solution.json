@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "thangu-graph-demo-client-side-solution",
+    "id": "dc92a1af-493f-4026-8812-5ab01ce1f83a",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Sites.Read.All"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/thangu-graph-demo.sppkg"
+  }
+}
